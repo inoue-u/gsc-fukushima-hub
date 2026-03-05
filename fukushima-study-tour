@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja" prefix="og: https://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Fukushima Study Tour | GSC Fukushima Hub</title>
+  <meta name="description" content="Fukushima Study Tourの目的，内容，参加方法，FAQをまとめます．"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://inoue-u.github.io/gsc-fukushima-hub/fukushima-study-tour.html"/>
+  <link rel="alternate" hreflang="ja" href="https://inoue-u.github.io/gsc-fukushima-hub/fukushima-study-tour.html?lang=ja">
+  <link rel="alternate" hreflang="en" href="https://inoue-u.github.io/gsc-fukushima-hub/fukushima-study-tour.html?lang=en">
+  <link rel="alternate" hreflang="x-default" href="https://inoue-u.github.io/gsc-fukushima-hub/fukushima-study-tour.html">
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Fukushima Study Tour | GSC Fukushima Hub"/>
+  <meta property="og:description" content="Purpose, program outline, participation, and FAQs for the Fukushima Study Tour."/>
+  <meta property="og:url" content="https://inoue-u.github.io/gsc-fukushima-hub/fukushima-study-tour.html"/>
+  <meta property="og:image" content="https://inoue-u.github.io/gsc-fukushima-hub/ogp.jpg"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta property="og:image:alt" content="Global Shapers Community Fukushima Hub"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Fukushima Study Tour | GSC Fukushima Hub"/>
+  <meta name="twitter:description" content="Purpose, program outline, participation, and FAQs for the Fukushima Study Tour."/>
+  <meta name="twitter:image" content="https://inoue-u.github.io/gsc-fukushima-hub/ogp.jpg"/>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Global Shapers Community Fukushima Hub",
+  "alternateName": [
+    "GSC Fukushima Hub",
+    "GSC Fukushima",
+    "Fukushima Hub",
+    "グローバルシェイパーズ福島ハブ",
+    "GSC福島ハブ",
+    "福島ハブ"
+  ],
+  "url": "https://inoue-u.github.io/gsc-fukushima-hub/",
+  "logo": "https://inoue-u.github.io/gsc-fukushima-hub/ogp.jpg",
+  "foundingDate": "2025",
+  "areaServed": {
+    "@type": "Place",
+    "name": "Fukushima, Japan"
+  },
+  "parentOrganization": {
+    "@type": "Organization",
+    "name": "World Economic Forum"
+  },
+  "sameAs": [
+    "https://www.globalshapers.org/",
+    "https://initiatives.weforum.org/fukushima-hub/overview",
+    "https://www.instagram.com/gsc_fukushima/"
+  ]
+}
+  </script>
+  <style>
+    body{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;margin:0;background:#0a1628;color:#fff;}
+    header{padding:24px 20px;border-bottom:1px solid rgba(255,255,255,.08);}
+    main{max-width:980px;margin:0 auto;padding:28px 20px;line-height:1.9;color:rgba(255,255,255,.8);}
+    a{color:#00c2ff;}
+    .lang-en .ja{display:none!important}
+    .lang-ja .en{display:none!important}
+    .toggle{display:inline-flex;border:1px solid rgba(255,255,255,.15);border-radius:6px;overflow:hidden}
+    .toggle button{background:transparent;color:rgba(255,255,255,.7);border:none;padding:8px 12px;cursor:pointer}
+    .toggle button.active{background:#00c2ff;color:#0a1628;font-weight:700}
+    .nav a{margin-right:14px;text-decoration:none;color:rgba(255,255,255,.75)}
+    .nav a:hover{color:#fff}
+  </style>
+</head>
+<body class="lang-ja">
+<header>
+  <div class="nav">
+    <a href="https://inoue-u.github.io/gsc-fukushima-hub/">Home</a>
+    <a href="https://inoue-u.github.io/gsc-fukushima-hub/about.html">About</a>
+    <a href="https://inoue-u.github.io/gsc-fukushima-hub/fukushima-study-tour.html">Study Tour</a>
+    <a href="https://inoue-u.github.io/gsc-fukushima-hub/projects.html">Projects</a>
+    <a href="https://inoue-u.github.io/gsc-fukushima-hub/media.html">Media</a>
+    <a href="https://inoue-u.github.io/gsc-fukushima-hub/contact.html">Contact</a>
+  </div>
+  <div class="toggle" style="margin-top:14px">
+    <button id="btn-ja" class="active">JA</button><button id="btn-en">EN</button>
+  </div>
+</header>
+<main>
+  <h1><span class="ja">Fukushima Study Tour</span><span class="en">Fukushima Study Tour</span></h1>
+  <div class="ja">
+    <p>Fukushima Study Tourは，浜通りを中心に地域の現場と向き合い，対話と体験を通じて学びを深めるプログラムである．</p><ul><li>目的：学びの場の創出，関係人口の形成，継続的な協働の起点づくり</li><li>形式：講義・現地訪問・対話セッション</li></ul><p>参加案内は公式Instagramで告知する．</p>
+  </div>
+  <div class="en">
+    <p>The Fukushima Study Tour is an immersive program that engages with local realities—especially in Hamadori—through visits, conversations, and learning sessions.</p><ul><li>Goals: learning, building lasting relationships, and creating starting points for collaboration</li><li>Format: briefings, site visits, and dialogue sessions</li></ul><p>Participation updates are announced via our official Instagram.</p>
+  </div>
+</main>
+<script>
+  const params=new URLSearchParams(location.search);
+  const lang=params.get("lang")||"ja";
+  const body=document.body;
+  function setLang(l){
+    body.classList.remove("lang-ja","lang-en");
+    body.classList.add(l==="en"?"lang-en":"lang-ja");
+    document.getElementById("btn-ja").classList.toggle("active", l!=="en");
+    document.getElementById("btn-en").classList.toggle("active", l==="en");
+  }
+  setLang(lang);
+  document.getElementById("btn-ja").onclick=()=>{params.set("lang","ja"); history.replaceState(null,"","?"+params.toString()); setLang("ja");};
+  document.getElementById("btn-en").onclick=()=>{params.set("lang","en"); history.replaceState(null,"","?"+params.toString()); setLang("en");};
+</script>
+</body>
+</html>
