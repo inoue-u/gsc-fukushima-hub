@@ -1193,6 +1193,93 @@ section {
   flex-shrink: 0;
 }
 
+/* JAPAN HUBS */
+.japan-hubs-section {
+  background: var(--navy);
+  padding: 6rem 3rem;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.japan-hubs-section .section-title {
+  margin-bottom: 0.8rem;
+}
+
+.japan-hubs-section .section-sub {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 3rem;
+}
+
+.japan-hubs-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.jhub-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 1.5rem 1.2rem;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: rgba(255,255,255,0.03);
+  text-decoration: none;
+  color: var(--white);
+  transition: border-color 0.22s, background 0.22s, transform 0.22s;
+  position: relative;
+  text-align: left;
+}
+
+a.jhub-card:hover {
+  border-color: var(--accent);
+  background: rgba(0,194,255,0.06);
+  transform: translateY(-3px);
+}
+
+.jhub-current {
+  border-color: var(--accent);
+  background: rgba(0,194,255,0.07);
+}
+
+.jhub-city {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.jhub-name {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.4);
+  font-weight: 300;
+}
+
+.jhub-arrow {
+  margin-top: auto;
+  padding-top: 0.8rem;
+  font-size: 0.9rem;
+  color: var(--accent);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+a.jhub-card:hover .jhub-arrow {
+  opacity: 1;
+}
+
+.jhub-badge {
+  margin-top: auto;
+  padding-top: 0.8rem;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
 /* FOOTER */
 footer {
   background: #060e1a;
@@ -1406,6 +1493,10 @@ footer {
     grid-row: auto;
   }
 
+  .japan-hubs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .footer-top {
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
@@ -1458,6 +1549,19 @@ footer {
 
   section {
     padding: 3.5rem 1rem;
+  }
+
+  .japan-hubs-section {
+    padding: 4rem 1rem;
+  }
+
+  .japan-hubs-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.7rem;
+  }
+
+  .jhub-card {
+    padding: 1.1rem 1rem;
   }
 
   .hero {
