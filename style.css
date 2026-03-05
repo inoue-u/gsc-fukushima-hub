@@ -28,6 +28,7 @@ body {
   background: var(--navy);
   color: var(--white);
   overflow-x: hidden;
+  padding-top: 64px;
 }
 
 /* LANG SWITCH */
