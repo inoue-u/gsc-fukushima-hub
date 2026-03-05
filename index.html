@@ -959,9 +959,6 @@
   document.querySelectorAll('.mcard[data-member]').forEach(function(card) {
     card.addEventListener('click', function() { openMemberModal(card.dataset.member); });
   });
-  document.getElementById('mmodal-close').addEventListener('click', closeMemberModal);
-  document.getElementById('mmodal-overlay').addEventListener('click', closeMemberModal);
-  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeMemberModal(); });
 
 </script>
 
@@ -981,5 +978,10 @@
     <div class="mmodal-body" id="mmodal-body"></div>
   </div>
 </div>
+<script>
+  document.getElementById('mmodal-close').addEventListener('click', closeMemberModal);
+  document.getElementById('mmodal-overlay').addEventListener('click', closeMemberModal);
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeMemberModal(); });
+</script>
 </body>
 </html>
