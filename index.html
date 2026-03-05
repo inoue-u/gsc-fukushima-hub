@@ -263,7 +263,216 @@
     .mmodal-msg .mmodal-v{font-size:0.95rem;color:rgba(255,255,255,0.7)}
     @media(max-width:540px){
       .mmodal-head{padding:1.4rem 1.2rem 1rem}
-      .mmodal-body{padding:1.2rem}
+      
+    /* MEMBERS UI — refined */
+    .members-toolbar{
+      display:grid;
+      grid-template-columns: 1fr 220px auto;
+      gap: 16px;
+      align-items:end;
+      margin-top: 26px;
+      padding: 18px 18px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+      backdrop-filter: blur(10px);
+    }
+    .members-label{
+      display:block;
+      font-size: 0.62rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 8px;
+    }
+    .members-input,.members-select{
+      width:100%;
+      padding: 12px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(10,22,40,0.8);
+      color: rgba(255,255,255,0.85);
+      outline: none;
+      transition: border-color .2s, transform .2s, box-shadow .2s;
+    }
+    .members-input:focus,.members-select:focus{
+      border-color: rgba(0,194,255,0.45);
+      box-shadow: 0 0 0 4px rgba(0,194,255,0.12);
+    }
+    .members-count{
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.55);
+      padding-bottom: 8px;
+      text-align:right;
+      white-space:nowrap;
+    }
+    @media(max-width: 840px){
+      .members-toolbar{grid-template-columns:1fr; align-items:stretch;}
+      .members-count{text-align:left;}
+    }
+
+    .members-grid.refined{
+      margin-top: 22px;
+      display:grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+    @media(max-width: 1080px){ .members-grid.refined{grid-template-columns: repeat(3, minmax(0,1fr));} }
+    @media(max-width: 760px){ .members-grid.refined{grid-template-columns: repeat(2, minmax(0,1fr));} }
+    @media(max-width: 480px){ .members-grid.refined{grid-template-columns: 1fr;} }
+
+    .mcard{
+      position:relative;
+      padding: 16px 16px 14px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background:
+        radial-gradient(120% 120% at 0% 0%, rgba(0,194,255,0.12) 0%, rgba(0,0,0,0) 55%),
+        radial-gradient(120% 120% at 100% 20%, rgba(0,229,160,0.10) 0%, rgba(0,0,0,0) 55%),
+        rgba(255,255,255,0.02);
+      transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease, background .25s ease;
+      overflow:hidden;
+      min-height: 230px;
+    }
+    .mcard:before{
+      content:"";
+      position:absolute; inset:-1px;
+      background: linear-gradient(135deg, rgba(0,194,255,0.22), rgba(0,229,160,0.14), rgba(255,255,255,0));
+      opacity:0;
+      transition: opacity .25s ease;
+      pointer-events:none;
+    }
+    .mcard:hover{
+      transform: translateY(-4px);
+      border-color: rgba(0,194,255,0.25);
+      box-shadow: 0 18px 46px rgba(0,0,0,0.40);
+    }
+    .mcard:hover:before{opacity:1;}
+
+    .mcard-top{
+      display:flex; align-items:flex-start; justify-content:space-between; gap:12px;
+      position:relative; z-index:1;
+    }
+    .mavatar{
+      width: 62px; height: 62px; border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.04);
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.2);
+    }
+    .mavatar img{width:100%; height:100%; object-fit:cover; border-radius:50%;}
+    .minit{display:none; width:100%; height:100%; border-radius:50%; font-weight:900; letter-spacing:0.12em;}
+
+    .mcard-badge{
+      font-size:0.62rem;
+      font-weight: 800;
+      letter-spacing:0.14em;
+      text-transform:uppercase;
+      color: rgba(255,255,255,0.65);
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(0,0,0,0.18);
+      max-width: 60%;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      white-space:nowrap;
+    }
+
+    .mcard-main{position:relative; z-index:1; margin-top: 14px;}
+    .mname{
+      font-size: 1.02rem;
+      font-weight: 800;
+      color: rgba(255,255,255,0.92);
+      letter-spacing: 0.02em;
+    }
+    .mmeta{margin-top: 10px;}
+    .mmini{
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.60);
+      line-height: 1.6;
+      min-height: 2.5em;
+      display:-webkit-box;
+      -webkit-line-clamp:2;
+      -webkit-box-orient: vertical;
+      overflow:hidden;
+    }
+    .mhome{
+      margin-top: 10px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.40);
+      display:-webkit-box;
+      -webkit-line-clamp:1;
+      -webkit-box-orient: vertical;
+      overflow:hidden;
+    }
+
+    .mcard-cta{
+      position:absolute; left:0; right:0; bottom:0;
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 12px 14px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.22) 100%);
+      color: rgba(255,255,255,0.65);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      z-index:1;
+    }
+    .mchev{transition: transform .2s ease, opacity .2s ease; opacity:0.9;}
+    .mcard:hover .mchev{transform: translateX(2px); opacity:1;}
+
+    /* MODAL refined */
+    .mmodal-panel{
+      border-radius: 18px;
+    }
+    .mmodal-avatarwrap{
+      width:72px;height:72px;border-radius:20px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.10);
+      display:flex;align-items:center;justify-content:center;
+    }
+    .mmodal-avatar{
+      width:56px;height:56px;border-radius: 16px;
+    }
+    .mmodal-headtext{min-width:0}
+    .mmodal-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top: 10px}
+    .mchip{
+      font-size:0.62rem;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;
+      padding: 8px 10px;border-radius:999px;
+      border:1px solid rgba(255,255,255,0.10);
+      background: rgba(0,0,0,0.14);
+      color: rgba(255,255,255,0.65);
+      max-width: 100%;
+    }
+    .mmodal-foot{
+      padding: 14px 2rem 18px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display:flex;
+      gap: 10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .msocial{
+      display:inline-flex;align-items:center;gap:10px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.03);
+      color: rgba(255,255,255,0.75);
+      font-weight:700;
+      letter-spacing:0.04em;
+      font-size:0.82rem;
+      cursor: default;
+      user-select:none;
+    }
+    .msocial svg{width:18px;height:18px;opacity:0.85}
+.mmodal-body{padding:1.2rem}
       .mmodal-grid{grid-template-columns:1fr}
     }
 /* NEWS */
@@ -613,114 +822,376 @@
 </section>
 
 <!-- MEMBERS -->
-<section class="members" id="members" aria-label="Fukushima Hub メンバー">
+<section class="members" id="members" aria-label="Fukushima Hub Members">
   <div class="eyebrow fade-up">Members</div>
   <h2 class="sec-title fade-up">FUKUSHIMA HUB<br><span class="acc">MEMBERS</span></h2>
 
-  <div class="members-grid" aria-label="Member list">
-    <button class="mcard mcard-btn" type="button" data-member="nomura-rika" aria-label="Open profile: Rika Nomura">
-          <div class="mavatar">
-            <img src="members/nomura-rika.jpg" alt="Rika Nomura" loading="lazy" onerror="this.style.display='none';this.parentElement.querySelector('.minit').style.display='flex';"/>
-            <div class="minit" aria-hidden="true">RN</div>
+<div class="members-toolbar" role="region" aria-label="Member search and filters">
+    <div class="members-search">
+      <label class="members-label" for="member-search">Search</label>
+      <input id="member-search" class="members-input" type="search" placeholder="Search members, roles, expertise…" autocomplete="off">
+    </div>
+    <div class="members-filter">
+      <label class="members-label" for="member-role">Role</label>
+      <select id="member-role" class="members-select">
+        <option value="">All</option>
+        <option value="Architecture">Architecture</option><option value="Community">Community</option><option value="Cultural Branding">Cultural Branding</option><option value="Design Research">Design Research</option><option value="Education">Education</option><option value="Medicine">Medicine</option><option value="Public Health">Public Health</option><option value="Regional Revitalization">Regional Revitalization</option><option value="SMEs">SMEs</option><option value="Strategic Design">Strategic Design</option><option value="Systemic Design">Systemic Design</option><option value="Tourism · International">Tourism · International</option><option value="Town Office">Town Office</option>
+      </select>
+    </div>
+    <div class="members-count" id="members-count" aria-live="polite"></div>
+  </div>
+
+  <div class="members-grid refined" aria-label="Member list">
+    <button class="mcard mcard-btn" type="button"
+          data-member="nomura-rika"
+          data-role="Tourism · International"
+          data-search="rika nomura tourism · international 福島市 ファミリーホームまる家，福島県庁観光交流課 国際担当（global shapers community沖縄hub outgoing-vice curator 2023） 観光・国際交流，子どもの社会的養護 イモリウム（アカハライモリ，苔，シダ植物） #イモリ facebook / instagram 福島の魅力を世界に発信することで，福島の人の暮らしがよくなるように工夫したいです．グローバルな視点を持って，福島と向き合える人を増やしていきたいです．"
+          aria-label="Open profile: Rika Nomura">
+          <div class="mcard-top">
+            <div class="mavatar">
+              <img src="members/nomura-rika.jpg" alt="Rika Nomura" loading="lazy"
+                   onerror="this.style.display='none';this.parentElement.querySelector('.minit').style.display='flex';"/>
+              <div class="minit" aria-hidden="true">RN</div>
+            </div>
+            <div class="mcard-badge">Tourism · International</div>
           </div>
-          <div class="mname"><span class="ja">野村吏花</span><span class="en">Rika Nomura</span></div>
-          <div class="mrole">Tourism · International</div>
+    
+          <div class="mcard-main">
+            <div class="mname">Rika Nomura</div>
+            <div class="mmeta">
+              <div class="mmini">観光・国際交流，子どもの社会的養護</div>
+              <div class="mhome">福島市</div>
+            </div>
+          </div>
+    
+          <div class="mcard-cta" aria-hidden="true">
+            <span>View profile</span>
+            <span class="mchev">→</span>
+          </div>
         </button>
-    <button class="mcard mcard-btn" type="button" data-member="ando-chihiro" aria-label="Open profile: Chihiro Ando">
-          <div class="mavatar">
-            <img src="members/ando-chihiro.jpg" alt="Chihiro Ando" loading="lazy" onerror="this.style.display='none';this.parentElement.querySelector('.minit').style.display='flex';"/>
-            <div class="minit" aria-hidden="true">CA</div>
+    <button class="mcard mcard-btn" type="button"
+          data-member="ando-chihiro"
+          data-role="Design Research"
+          data-search="chihiro ando design research koriyama city，fukushima，japan japan social innovation center jsic / i.school，wired sci-fi prototyping research lab（design researcher）／global shapers community yokohama hub vice curator 2024 art urbanism，design research，education taking a walk，farm hopping，ramen eater🍜 #innovationeducation #urban #public&amp;art facebook / instagram i work as a design researcher and planner in several educational institutions and research labs. i’m interested in creating an environment full of creativity related to art and design, such as civic art activities, artist residency. i am a member of fukushima-bu. looking forward to seeing you all!"
+          aria-label="Open profile: Chihiro Ando">
+          <div class="mcard-top">
+            <div class="mavatar">
+              <img src="members/ando-chihiro.jpg" alt="Chihiro Ando" loading="lazy"
+                   onerror="this.style.display='none';this.parentElement.querySelector('.minit').style.display='flex';"/>
+              <div class="minit" aria-hidden="true">CA</div>
+            </div>
+            <div class="mcard-badge">Design Research</div>
           </div>
-          <div class="mname"><span class="ja">安藤千尋</span><span class="en">Chihiro Ando</span></div>
-          <div class="mrole">Design Research</div>
+    
+          <div class="mcard-main">
+            <div class="mname">Chihiro Ando</div>
+            <div class="mmeta">
+              <div class="mmini">Art Urbanism，Design Research，Education</div>
+              <div class="mhome">Koriyama city，Fukushima，Japan</div>
+            </div>
+          </div>
+    
+          <div class="mcard-cta" aria-hidden="true">
+            <span>View profile</span>
+            <span class="mchev">→</span>
+          </div>
         </button>
-    <button class="mcard mcard-btn" type="button" data-member="noji-yuta" aria-label="Open profile: Yuta Noji">
-          <div class="mavatar">
-            <img src="members/noji-yuta.jpg" alt="Yuta Noji" loading="lazy" onerror="this.style.display='none';this.parentElement.querySelector('.minit').style.display='flex';"/>
-            <div class="minit" aria-hidden="true">YN</div>
+    <button class="mcard mcard-btn" type="button"
+          data-member="noji-yuta"
+          data-role="Education"
+          data-search="yuta noji education fukushima，japan beyond lab inc. ceo／u share inc.（community manager）／global shapers community yokohama hub outgoing-impact officer 2023 education，intercultural communication，study abroad camping，traveling，making costume #halloween #fukushima #minnesota #outdoor facebook / instagram i have organized international exchange program for teenagers in fukushima. i’d like to build intercultural environment in local school. i moved to tokyo last year from namie town. i’m also a member of fukushima-bu."
+          aria-label="Open profile: Yuta Noji">
+          <div class="mcard-top">
+            <div class="mavatar">
+              <img src="members/noji-yuta.jpg" alt="Yuta Noji" loading="lazy"
+                   onerror="this.style.display='none';this.parentElement.querySelector('.minit').style.display='flex';"/>
+              <div class="minit" aria-hidden="true">YN</div>
+            </div>
+            <div class="mcard-badge">Education</div>
           </div>
-          <div class="mname"><span class="ja">野地勇太</span><span class="en">Yuta Noji</span></div>
-          <div class="mrole">Education</div>
+    
+          <div class="mcard-main">
+            <div class="mname">Yuta Noji</div>
+            <div class="mmeta">
+              <div class="mmini">Education，Intercultural Communication，Study abroad</div>
+              <div class="mhome">Fukushima，Japan</div>
+            </div>
+          </div>
+    
+          <div class="mcard-cta" aria-hidden="true">
+            <span>View profile</span>
+            <span class="mchev">→</span>
+          </div>
         </button>
-    <button class="mcard mcard-btn" type="button" data-member="shirado-airi" aria-label="Open profile: Airi Shirado">
-          <div class="mavatar">
-            <img src="members/shirado-airi.jpg" alt="Airi Shirado" loading="lazy" onerror="this.style.display='none';this.parentElement.querySelector('.minit').style.display='flex';"/>
-            <div class="minit" aria-hidden="true">AS</div>
+    <button class="mcard mcard-btn" type="button"
+          data-member="shirado-airi"
+          data-role="Community"
+          data-search="airi shirado community iwaki city，fukushima，japan system forward inc.（cs） dialogue，community wind orchestra（b.sax🎷），crochet🧶，tanka（poem）📜  facebook / instagram（priv / pub） 福島が，県内外に限らず多くの人が当事者性を感じながら誇りを持てる場所になれば嬉しいです．皆様と繋がれるのもとても楽しみです👏"
+          aria-label="Open profile: Airi Shirado">
+          <div class="mcard-top">
+            <div class="mavatar">
+              <img src="members/shirado-airi.jpg" alt="Airi Shirado" loading="lazy"
+                   onerror="this.style.display='none';this.parentElement.querySelector('.minit').style.display='flex';"/>
+              <div class="minit" aria-hidden="true">AS</div>
+            </div>
+            <div class="mcard-badge">Community</div>
           </div>
-          <div class="mname"><span class="ja">白土愛梨</span><span class="en">Airi Shirado</span></div>
-          <div class="mrole">Community</div>
+    
+          <div class="mcard-main">
+            <div class="mname">Airi Shirado</div>
+            <div class="mmeta">
+              <div class="mmini">dialogue，community</div>
+              <div class="mhome">Iwaki city，Fukushima，Japan</div>
+            </div>
+          </div>
+    
+          <div class="mcard-cta" aria-hidden="true">
+            <span>View profile</span>
+            <span class="mchev">→</span>
+          </div>
         </button>
-    <button class="mcard mcard-btn" type="button" data-member="sotome-kensho" aria-label="Open profile: Kensho Sotome">
-          <div class="mavatar">
-            <img src="members/sotome-kensho.jpg" alt="Kensho Sotome" loading="lazy" onerror="this.style.display='none';this.parentElement.querySelector('.minit').style.display='flex';"/>
-            <div class="minit" aria-hidden="true">KS</div>
+    <button class="mcard mcard-btn" type="button"
+          data-member="sotome-kensho"
+          data-role="Strategic Design"
+          data-search="kensho sotome strategic design grew up across the u.s.，shanghai，and japan — currently based in kawagoe，saitama concent inc.（strategic design group） design research，prototyping，human-centered design   facebook / instagram growing up across the u.s., china, and japan, i learned to see the world through many lenses. i’m passionate about using design as a tool to connect people across boundaries — cultural, generational, or emotional — and to shape futures together, one dialogue at a time. i’m excited to shape new narratives with the people of fukushima."
+          aria-label="Open profile: Kensho Sotome">
+          <div class="mcard-top">
+            <div class="mavatar">
+              <img src="members/sotome-kensho.jpg" alt="Kensho Sotome" loading="lazy"
+                   onerror="this.style.display='none';this.parentElement.querySelector('.minit').style.display='flex';"/>
+              <div class="minit" aria-hidden="true">KS</div>
+            </div>
+            <div class="mcard-badge">Strategic Design</div>
           </div>
-          <div class="mname"><span class="ja">早乙女健彰</span><span class="en">Kensho Sotome</span></div>
-          <div class="mrole">Strategic Design</div>
+    
+          <div class="mcard-main">
+            <div class="mname">Kensho Sotome</div>
+            <div class="mmeta">
+              <div class="mmini">Design Research，Prototyping，Human-centered Design</div>
+              <div class="mhome">Grew up across the U.S.，Shanghai，and Japan — currently based in Kawagoe，Saitama</div>
+            </div>
+          </div>
+    
+          <div class="mcard-cta" aria-hidden="true">
+            <span>View profile</span>
+            <span class="mchev">→</span>
+          </div>
         </button>
-    <button class="mcard mcard-btn" type="button" data-member="lin-yingmei" aria-label="Open profile: Yingmei Lin">
-          <div class="mavatar">
-            <img src="members/lin-yingmei.jpg" alt="Yingmei Lin" loading="lazy" onerror="this.style.display='none';this.parentElement.querySelector('.minit').style.display='flex';"/>
-            <div class="minit" aria-hidden="true">YL</div>
+    <button class="mcard mcard-btn" type="button"
+          data-member="lin-yingmei"
+          data-role="Architecture"
+          data-search="yingmei lin architecture china &amp; japan graduate student of gsfs，utokyo architecture，community，urban orchestra（flute），town walk #architecture #autonomy #eastasia facebook / instagram fukushima is a place that holds special meaning for me. although i first visited only two years ago, it now feels like a hometown to me. let’s bring new energy and vitality to fukushima!"
+          aria-label="Open profile: Yingmei Lin">
+          <div class="mcard-top">
+            <div class="mavatar">
+              <img src="members/lin-yingmei.jpg" alt="Yingmei Lin" loading="lazy"
+                   onerror="this.style.display='none';this.parentElement.querySelector('.minit').style.display='flex';"/>
+              <div class="minit" aria-hidden="true">YL</div>
+            </div>
+            <div class="mcard-badge">Architecture</div>
           </div>
-          <div class="mname"><span class="ja">林穎美</span><span class="en">Yingmei Lin</span></div>
-          <div class="mrole">Architecture</div>
+    
+          <div class="mcard-main">
+            <div class="mname">Yingmei Lin</div>
+            <div class="mmeta">
+              <div class="mmini">Architecture，Community，Urban</div>
+              <div class="mhome">China &amp; Japan</div>
+            </div>
+          </div>
+    
+          <div class="mcard-cta" aria-hidden="true">
+            <span>View profile</span>
+            <span class="mchev">→</span>
+          </div>
         </button>
-    <button class="mcard mcard-btn" type="button" data-member="koma-kazuki" aria-label="Open profile: Kazuki Koma">
-          <div class="mavatar">
-            <img src="members/koma-kazuki.jpg" alt="Kazuki Koma" loading="lazy" onerror="this.style.display='none';this.parentElement.querySelector('.minit').style.display='flex';"/>
-            <div class="minit" aria-hidden="true">KK</div>
+    <button class="mcard mcard-btn" type="button"
+          data-member="koma-kazuki"
+          data-role="SMEs"
+          data-search="kazuki koma smes tokyo，japan rikkyo university smes（small and medium enterprises） reading books，music，cycling #foods facebook / instagram i have been involved in odaka, minami soma city, for a year now. odaka has a unique energy and vibe. such like india. through this experience, i would like to get to know other areas and people in fukushima. i`m looking forward to see you!!"
+          aria-label="Open profile: Kazuki Koma">
+          <div class="mcard-top">
+            <div class="mavatar">
+              <img src="members/koma-kazuki.jpg" alt="Kazuki Koma" loading="lazy"
+                   onerror="this.style.display='none';this.parentElement.querySelector('.minit').style.display='flex';"/>
+              <div class="minit" aria-hidden="true">KK</div>
+            </div>
+            <div class="mcard-badge">SMEs</div>
           </div>
-          <div class="mname"><span class="ja">駒和樹</span><span class="en">Kazuki Koma</span></div>
-          <div class="mrole">SMEs</div>
+    
+          <div class="mcard-main">
+            <div class="mname">Kazuki Koma</div>
+            <div class="mmeta">
+              <div class="mmini">SMEs（Small and Medium Enterprises）</div>
+              <div class="mhome">Tokyo，Japan</div>
+            </div>
+          </div>
+    
+          <div class="mcard-cta" aria-hidden="true">
+            <span>View profile</span>
+            <span class="mchev">→</span>
+          </div>
         </button>
-    <button class="mcard mcard-btn" type="button" data-member="kodama-takuto" aria-label="Open profile: Takuto Kodama">
-          <div class="mavatar">
-            <img src="members/kodama-takuto.jpg" alt="Takuto Kodama" loading="lazy" onerror="this.style.display='none';this.parentElement.querySelector('.minit').style.display='flex';"/>
-            <div class="minit" aria-hidden="true">TK</div>
+    <button class="mcard mcard-btn" type="button"
+          data-member="kodama-takuto"
+          data-role="Town Office"
+          data-search="takuto kodama town office 広島市 双葉町役場復興推進課 文学，人事 #旅行✈️　#カメラ📷  facebook / instagram 様々な人々が福島という場所に集い，何かを生み出す・生み出される環境を作っていきたいなと思っています！よろしくお願いします🙌"
+          aria-label="Open profile: Takuto Kodama">
+          <div class="mcard-top">
+            <div class="mavatar">
+              <img src="members/kodama-takuto.jpg" alt="Takuto Kodama" loading="lazy"
+                   onerror="this.style.display='none';this.parentElement.querySelector('.minit').style.display='flex';"/>
+              <div class="minit" aria-hidden="true">TK</div>
+            </div>
+            <div class="mcard-badge">Town Office</div>
           </div>
-          <div class="mname"><span class="ja">児玉拓人</span><span class="en">Takuto Kodama</span></div>
-          <div class="mrole">Town Office</div>
+    
+          <div class="mcard-main">
+            <div class="mname">Takuto Kodama</div>
+            <div class="mmeta">
+              <div class="mmini">文学，人事</div>
+              <div class="mhome">広島市</div>
+            </div>
+          </div>
+    
+          <div class="mcard-cta" aria-hidden="true">
+            <span>View profile</span>
+            <span class="mchev">→</span>
+          </div>
         </button>
-    <button class="mcard mcard-btn" type="button" data-member="minami" aria-label="Open profile: Minami">
-          <div class="mavatar">
-            <img src="members/minami.jpg" alt="Minami" loading="lazy" onerror="this.style.display='none';this.parentElement.querySelector('.minit').style.display='flex';"/>
-            <div class="minit" aria-hidden="true">MI</div>
+    <button class="mcard mcard-btn" type="button"
+          data-member="minami"
+          data-role="Systemic Design"
+          data-search="minami systemic design tokyo，u.s.，barcelona utokyo college of design，laere inc. systemic design，education，art，design research   linkedin i'm interested in exploring how narratives and co-creation can help shape better conditions for both society and the environment. i'm especially drawn to regional areas in japan and around the world, and to the often overlooked stories of the people who live there. i'm really looking forward to getting to know fukushima and all of you!"
+          aria-label="Open profile: Minami">
+          <div class="mcard-top">
+            <div class="mavatar">
+              <img src="members/minami.jpg" alt="Minami" loading="lazy"
+                   onerror="this.style.display='none';this.parentElement.querySelector('.minit').style.display='flex';"/>
+              <div class="minit" aria-hidden="true">MI</div>
+            </div>
+            <div class="mcard-badge">Systemic Design</div>
           </div>
-          <div class="mname"><span class="ja">Minami</span><span class="en">Minami</span></div>
-          <div class="mrole">Systemic Design</div>
+    
+          <div class="mcard-main">
+            <div class="mname">Minami</div>
+            <div class="mmeta">
+              <div class="mmini">Systemic Design，Education，Art，Design Research</div>
+              <div class="mhome">Tokyo，U.S.，Barcelona</div>
+            </div>
+          </div>
+    
+          <div class="mcard-cta" aria-hidden="true">
+            <span>View profile</span>
+            <span class="mchev">→</span>
+          </div>
         </button>
-    <button class="mcard mcard-btn" type="button" data-member="takahashi-yuya" aria-label="Open profile: Yuya Takahashi">
-          <div class="mavatar">
-            <img src="members/takahashi-yuya.jpg" alt="Yuya Takahashi" loading="lazy" onerror="this.style.display='none';this.parentElement.querySelector('.minit').style.display='flex';"/>
-            <div class="minit" aria-hidden="true">YT</div>
+    <button class="mcard mcard-btn" type="button"
+          data-member="takahashi-yuya"
+          data-role="Regional Revitalization"
+          data-search="yuya takahashi regional revitalization otama village，fukushima representative director of spread from fukushima（general incorporated association） business administration，education，start-up，regional revitalization sports，reading，travel，talk  instagram / facebook i’m really excited to meet new people, run various projects, and create a better fukushima! also i’m looking forward to seeing you all!"
+          aria-label="Open profile: Yuya Takahashi">
+          <div class="mcard-top">
+            <div class="mavatar">
+              <img src="members/takahashi-yuya.jpg" alt="Yuya Takahashi" loading="lazy"
+                   onerror="this.style.display='none';this.parentElement.querySelector('.minit').style.display='flex';"/>
+              <div class="minit" aria-hidden="true">YT</div>
+            </div>
+            <div class="mcard-badge">Regional Revitalization</div>
           </div>
-          <div class="mname"><span class="ja">高橋雄也</span><span class="en">Yuya Takahashi</span></div>
-          <div class="mrole">Regional Revitalization</div>
+    
+          <div class="mcard-main">
+            <div class="mname">Yuya Takahashi</div>
+            <div class="mmeta">
+              <div class="mmini">Business administration，Education，Start-up，Regional Revitalization</div>
+              <div class="mhome">Otama village，Fukushima</div>
+            </div>
+          </div>
+    
+          <div class="mcard-cta" aria-hidden="true">
+            <span>View profile</span>
+            <span class="mchev">→</span>
+          </div>
         </button>
-    <button class="mcard mcard-btn" type="button" data-member="inoue-yu" aria-label="Open profile: Yu Inoue">
-          <div class="mavatar">
-            <img src="members/inoue-yu.jpg" alt="Yu Inoue" loading="lazy" onerror="this.style.display='none';this.parentElement.querySelector('.minit').style.display='flex';"/>
-            <div class="minit" aria-hidden="true">YI</div>
+    <button class="mcard mcard-btn" type="button"
+          data-member="inoue-yu"
+          data-role="Medicine"
+          data-search="yu inoue medicine fukushima city，fukushima pre，japan fukushima medical university hospital medicine playing musical instruments，engaging in dialogue，watching movies #medicine #dialogue #movie facebook / instagram as a former evacuee and a current physician, i wish to take action for the sake of my hometown. i will live my life together with this land."
+          aria-label="Open profile: Yu Inoue">
+          <div class="mcard-top">
+            <div class="mavatar">
+              <img src="members/inoue-yu.jpg" alt="Yu Inoue" loading="lazy"
+                   onerror="this.style.display='none';this.parentElement.querySelector('.minit').style.display='flex';"/>
+              <div class="minit" aria-hidden="true">YI</div>
+            </div>
+            <div class="mcard-badge">Medicine</div>
           </div>
-          <div class="mname"><span class="ja">井上 勇</span><span class="en">Yu Inoue</span></div>
-          <div class="mrole">Medicine</div>
+    
+          <div class="mcard-main">
+            <div class="mname">Yu Inoue</div>
+            <div class="mmeta">
+              <div class="mmini">Medicine</div>
+              <div class="mhome">Fukushima city，Fukushima pre，Japan</div>
+            </div>
+          </div>
+    
+          <div class="mcard-cta" aria-hidden="true">
+            <span>View profile</span>
+            <span class="mchev">→</span>
+          </div>
         </button>
-    <button class="mcard mcard-btn" type="button" data-member="yanagida-hiroki" aria-label="Open profile: Hiroki Yanagida">
-          <div class="mavatar">
-            <img src="members/yanagida-hiroki.jpg" alt="Hiroki Yanagida" loading="lazy" onerror="this.style.display='none';this.parentElement.querySelector('.minit').style.display='flex';"/>
-            <div class="minit" aria-hidden="true">HY</div>
+    <button class="mcard mcard-btn" type="button"
+          data-member="yanagida-hiroki"
+          data-role="Cultural Branding"
+          data-search="hiroki yanagida cultural branding kawasaki city，kanagawa／father from nihonmatsu，fukushima founder &amp; ceo of aizunoaitsu co., ltd.／sales at sansan inc. cultural branding，local revitalization，project design driving，talking by the irori，making rice balls，night walks by rivers，mahjong  facebook / instagram i’m excited to collaborate with all of you to bridge local culture and global innovation."
+          aria-label="Open profile: Hiroki Yanagida">
+          <div class="mcard-top">
+            <div class="mavatar">
+              <img src="members/yanagida-hiroki.jpg" alt="Hiroki Yanagida" loading="lazy"
+                   onerror="this.style.display='none';this.parentElement.querySelector('.minit').style.display='flex';"/>
+              <div class="minit" aria-hidden="true">HY</div>
+            </div>
+            <div class="mcard-badge">Cultural Branding</div>
           </div>
-          <div class="mname"><span class="ja">柳田寛樹</span><span class="en">Hiroki Yanagida</span></div>
-          <div class="mrole">Cultural Branding</div>
+    
+          <div class="mcard-main">
+            <div class="mname">Hiroki Yanagida</div>
+            <div class="mmeta">
+              <div class="mmini">Cultural Branding，Local Revitalization，Project Design</div>
+              <div class="mhome">Kawasaki City，Kanagawa／Father from Nihonmatsu，Fukushima</div>
+            </div>
+          </div>
+    
+          <div class="mcard-cta" aria-hidden="true">
+            <span>View profile</span>
+            <span class="mchev">→</span>
+          </div>
         </button>
-    <button class="mcard mcard-btn" type="button" data-member="sawasato-akane" aria-label="Open profile: Akane Sawasato">
-          <div class="mavatar">
-            <img src="members/sawasato-akane.jpg" alt="Akane Sawasato" loading="lazy" onerror="this.style.display='none';this.parentElement.querySelector('.minit').style.display='flex';"/>
-            <div class="minit" aria-hidden="true">AS</div>
+    <button class="mcard mcard-btn" type="button"
+          data-member="sawasato-akane"
+          data-role="Public Health"
+          data-search="akane sawasato public health yokohama the japanese clinical integrative medicine society and few more medicine，public health travel  linkedin my passion is using science and healthcare to help communities heal, grow, and reconnect—especially in places like fukushima, where resilience and innovation can shape a better future. i’m excited to join you all!"
+          aria-label="Open profile: Akane Sawasato">
+          <div class="mcard-top">
+            <div class="mavatar">
+              <img src="members/sawasato-akane.jpg" alt="Akane Sawasato" loading="lazy"
+                   onerror="this.style.display='none';this.parentElement.querySelector('.minit').style.display='flex';"/>
+              <div class="minit" aria-hidden="true">AS</div>
+            </div>
+            <div class="mcard-badge">Public Health</div>
           </div>
-          <div class="mname"><span class="ja">澤里朱音</span><span class="en">Akane Sawasato</span></div>
-          <div class="mrole">Public Health</div>
+    
+          <div class="mcard-main">
+            <div class="mname">Akane Sawasato</div>
+            <div class="mmeta">
+              <div class="mmini">Medicine，Public health</div>
+              <div class="mhome">Yokohama</div>
+            </div>
+          </div>
+    
+          <div class="mcard-cta" aria-hidden="true">
+            <span>View profile</span>
+            <span class="mchev">→</span>
+          </div>
         </button>
   </div>
 
@@ -729,15 +1200,21 @@
     <div class="mmodal-backdrop" data-close="1"></div>
     <div class="mmodal-panel" role="document">
       <button class="mmodal-close" type="button" aria-label="Close" data-close="1">×</button>
+
       <div class="mmodal-head">
-        <div class="mmodal-avatar" id="mmodal-avatar">GS</div>
-        <div>
+        <div class="mmodal-avatarwrap">
+          <div class="mmodal-avatar" id="mmodal-avatar">GS</div>
+        </div>
+        <div class="mmodal-headtext">
           <div class="mmodal-name" id="mmodal-name">Member</div>
           <div class="mmodal-sub" id="mmodal-sub"></div>
+          <div class="mmodal-chips" id="mmodal-chips"></div>
         </div>
       </div>
 
       <div class="mmodal-body" id="mmodal-body"></div>
+
+      <div class="mmodal-foot" id="mmodal-foot"></div>
     </div>
   </div>
 </section>
@@ -926,13 +1403,47 @@
     return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;');
   }
 
-  function openMember(id){
+  
+  const modalChips = document.getElementById('mmodal-chips');
+  const modalFoot = document.getElementById('mmodal-foot');
+
+  const ICONS = {
+    facebook: `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12.07C22 6.48 17.52 2 11.93 2S1.86 6.48 1.86 12.07c0 4.86 3.44 8.91 7.95 9.83v-6.95H7.62v-2.88h2.19V9.85c0-2.17 1.29-3.37 3.27-3.37.95 0 1.94.17 1.94.17v2.14h-1.09c-1.08 0-1.41.67-1.41 1.36v1.63h2.4l-.38 2.88h-2.02v6.95c4.51-.92 7.95-4.97 7.95-9.83Z"/></svg>`,
+    instagram: `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9Zm10.25 1.5a.75.75 0 1 1 0 1.5.75.75 0 0 1 0-1.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg>`,
+    linkedin: `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.58c0-1.33-.03-3.03-1.85-3.03-1.85 0-2.13 1.44-2.13 2.93v5.68H9.35V9h3.42v1.56h.05c.48-.9 1.65-1.85 3.4-1.85 3.64 0 4.31 2.4 4.31 5.51v6.23ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>`
+  };
+
+  function makeChips(d){
+    const chips = [];
+    if(d.home) chips.push(d.home);
+    if(d.speciality) chips.push(d.speciality);
+    if(d.hashtag) chips.push(d.hashtag);
+    return chips.slice(0,3).map(t => `<span class="mchip">${escHtml(t)}</span>`).join('');
+  }
+
+  function parseSNS(s){
+    const raw = String(s||'');
+    const lower = raw.toLowerCase();
+    const out = [];
+    if(lower.includes('facebook')) out.push('facebook');
+    if(lower.includes('instagram')) out.push('instagram');
+    if(lower.includes('linkedin')) out.push('linkedin');
+    return out;
+  }
+
+  function renderSocials(d){
+    const kinds = parseSNS(d.sns);
+    if(kinds.length === 0) return '';
+    return kinds.map(k => `<span class="msocial">${ICONS[k] || ''}<span>${k[0].toUpperCase()+k.slice(1)}</span></span>`).join('');
+  }
+function openMember(id){
     const d = MEMBER_DATA[id];
     if(!d) return;
     const called = d.called_ja ? `（${d.called_ja}）` : '';
-    modalName.innerHTML = `<span class="ja">${escHtml(d.name_ja)}${called}</span><span class="en">${escHtml(d.name_en)}</span>`;
-    modalSub.textContent = d.role || '';
-    modalAvatar.textContent = (d.name_en||'GS').split(/\s+/).slice(0,2).map(x=>x[0]).join('').toUpperCase();
+    modalName.textContent = d.name_en || "Member";
+modalSub.textContent = d.role || '';
+        modalChips.innerHTML = makeChips(d);
+modalAvatar.textContent = (d.name_en||'GS').split(/\s+/).slice(0,2).map(x=>x[0]).join('').toUpperCase();
 
     const rows = [
       ['Home Country', d.home],
@@ -952,7 +1463,9 @@
 
     modalBody.innerHTML = `<div class="mmodal-grid">${grid}</div>${msg}`;
 
-    modal.classList.add('open');
+    
+    modalFoot.innerHTML = renderSocials(d);
+modal.classList.add('open');
     modal.setAttribute('aria-hidden','false');
     document.body.style.overflow='hidden';
   }
@@ -967,7 +1480,39 @@
     card.addEventListener('click', () => openMember(card.dataset.member));
   });
 
-  modal.addEventListener('click', (e) => {
+  
+
+  // Members filtering
+  const memberSearch = document.getElementById('member-search');
+  const memberRole = document.getElementById('member-role');
+  const memberCards = Array.from(document.querySelectorAll('.mcard-btn'));
+  const membersCount = document.getElementById('members-count');
+
+  function applyMemberFilter(){
+    const q = (memberSearch?.value || '').trim().toLowerCase();
+    const r = (memberRole?.value || '').trim().toLowerCase();
+    let shown = 0;
+
+    memberCards.forEach(btn => {
+      const blob = (btn.getAttribute('data-search') || '').toLowerCase();
+      const role = (btn.getAttribute('data-role') || '').toLowerCase();
+      const okQ = !q || blob.includes(q);
+      const okR = !r || role === r;
+      const show = okQ && okR;
+      btn.style.display = show ? '' : 'none';
+      if(show) shown += 1;
+    });
+
+    if(membersCount){
+      const total = memberCards.length;
+      membersCount.textContent = `${shown} / ${total}`;
+    }
+  }
+
+  memberSearch?.addEventListener('input', applyMemberFilter);
+  memberRole?.addEventListener('change', applyMemberFilter);
+  applyMemberFilter();
+modal.addEventListener('click', (e) => {
     const t = e.target;
     if(t && t.dataset && t.dataset.close) closeMember();
   });
