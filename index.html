@@ -207,7 +207,7 @@
     .mcard{background:var(--navy);padding:2rem;display:flex;flex-direction:column;gap:1rem;transition:background 0.25s,opacity 0.5s,transform 0.5s;opacity:0;transform:translateY(14px)}
     .mcard.visible{opacity:1;transform:none}
     .mcard:hover{background:rgba(255,255,255,0.03)}
-    .mavatar{width:60px;height:60px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center}
+    .mavatar{width:72px;height:72px;border-radius:18px;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.04);box-shadow:inset 0 0 0 1px rgba(0,0,0,0.2);position:relative;overflow:hidden}
     .mavatar svg{width:26px;height:26px;color:rgba(255,255,255,0.2)}
     .mname{font-size:0.95rem;font-weight:600;color:var(--white)}
     .mrole{font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent)}
@@ -218,7 +218,7 @@
     .mcard-btn{border:none;text-align:left;cursor:pointer}
     .mcard-btn:focus{outline:2px solid rgba(0,194,255,0.45);outline-offset:2px}
     .mavatar{position:relative;overflow:hidden}
-    .mavatar img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+    .mavatar img{width:100%;height:100%;object-fit:cover;border-radius:18px;display:block}
     .minit{display:none;align-items:center;justify-content:center;width:100%;height:100%;border-radius:50%;
       font-weight:800;letter-spacing:0.08em;color:rgba(255,255,255,0.85);background:linear-gradient(135deg,rgba(0,194,255,0.22),rgba(0,229,160,0.14));
     }
@@ -595,7 +595,30 @@
       .hero-actions{margin-top:1.8rem}
       #lang-toggle{}
     }
-  </style>
+  
+    /* Member social hover */
+    .mcard{cursor:pointer}
+    .msocial-hover{
+      position:absolute; inset:0;
+      display:flex; align-items:center; justify-content:center;
+      gap:10px;
+      background:linear-gradient(180deg, rgba(0,0,0,0.10) 0%, rgba(0,0,0,0.55) 100%);
+      opacity:0; transform:translateY(6px);
+      transition:opacity .18s ease, transform .18s ease;
+      pointer-events:none;
+    }
+    .mcard:hover .msocial-hover{opacity:1; transform:translateY(0); pointer-events:auto;}
+    .msocial-link{
+      width:40px;height:40px;border-radius:12px;
+      display:inline-flex;align-items:center;justify-content:center;
+      border:1px solid rgba(255,255,255,0.14);
+      background:rgba(10,22,40,0.65);
+      color:rgba(255,255,255,0.90);
+      transition:transform .18s ease, background .18s ease, opacity .18s ease;
+    }
+    .msocial-link:hover{transform:translateY(-2px); background:rgba(0,0,0,0.20); opacity:0.95;}
+    .msocial-link svg{width:18px;height:18px}
+</style>
 </head>
 <body class="lang-ja">
 <!-- SEO: Global Shapers Community Fukushima Hub, GSC Fukushima, GSC Fukushima Hub, Fukushima Hub, グローバルシェイパーズ 福島ハブ, 福島ハブ, WEF Fukushima, 世界経済フォーラム 福島 -->
@@ -850,8 +873,8 @@
           <div class="mcard-top">
             <div class="mavatar">
               <img src="members/nomura-rika.jpg" alt="Rika Nomura" loading="lazy"
-                   onerror="this.style.display='none';this.parentElement.querySelector('.minit').style.display='flex';"/>
-              <div class="minit" aria-hidden="true">RN</div>
+                   />
+              
             </div>
             <div class="mcard-badge">Tourism · International</div>
           </div>
@@ -877,8 +900,8 @@
           <div class="mcard-top">
             <div class="mavatar">
               <img src="members/ando-chihiro.jpg" alt="Chihiro Ando" loading="lazy"
-                   onerror="this.style.display='none';this.parentElement.querySelector('.minit').style.display='flex';"/>
-              <div class="minit" aria-hidden="true">CA</div>
+                   />
+              
             </div>
             <div class="mcard-badge">Design Research</div>
           </div>
@@ -904,8 +927,8 @@
           <div class="mcard-top">
             <div class="mavatar">
               <img src="members/noji-yuta.jpg" alt="Yuta Noji" loading="lazy"
-                   onerror="this.style.display='none';this.parentElement.querySelector('.minit').style.display='flex';"/>
-              <div class="minit" aria-hidden="true">YN</div>
+                   />
+              
             </div>
             <div class="mcard-badge">Education</div>
           </div>
@@ -931,8 +954,8 @@
           <div class="mcard-top">
             <div class="mavatar">
               <img src="members/shirado-airi.jpg" alt="Airi Shirado" loading="lazy"
-                   onerror="this.style.display='none';this.parentElement.querySelector('.minit').style.display='flex';"/>
-              <div class="minit" aria-hidden="true">AS</div>
+                   />
+              
             </div>
             <div class="mcard-badge">Community</div>
           </div>
@@ -958,8 +981,8 @@
           <div class="mcard-top">
             <div class="mavatar">
               <img src="members/sotome-kensho.jpg" alt="Kensho Sotome" loading="lazy"
-                   onerror="this.style.display='none';this.parentElement.querySelector('.minit').style.display='flex';"/>
-              <div class="minit" aria-hidden="true">KS</div>
+                   />
+              
             </div>
             <div class="mcard-badge">Strategic Design</div>
           </div>
@@ -985,8 +1008,8 @@
           <div class="mcard-top">
             <div class="mavatar">
               <img src="members/lin-yingmei.jpg" alt="Yingmei Lin" loading="lazy"
-                   onerror="this.style.display='none';this.parentElement.querySelector('.minit').style.display='flex';"/>
-              <div class="minit" aria-hidden="true">YL</div>
+                   />
+              
             </div>
             <div class="mcard-badge">Architecture</div>
           </div>
@@ -1012,8 +1035,8 @@
           <div class="mcard-top">
             <div class="mavatar">
               <img src="members/koma-kazuki.jpg" alt="Kazuki Koma" loading="lazy"
-                   onerror="this.style.display='none';this.parentElement.querySelector('.minit').style.display='flex';"/>
-              <div class="minit" aria-hidden="true">KK</div>
+                   />
+              
             </div>
             <div class="mcard-badge">SMEs</div>
           </div>
@@ -1039,8 +1062,8 @@
           <div class="mcard-top">
             <div class="mavatar">
               <img src="members/kodama-takuto.jpg" alt="Takuto Kodama" loading="lazy"
-                   onerror="this.style.display='none';this.parentElement.querySelector('.minit').style.display='flex';"/>
-              <div class="minit" aria-hidden="true">TK</div>
+                   />
+              
             </div>
             <div class="mcard-badge">Town Office</div>
           </div>
@@ -1066,8 +1089,8 @@
           <div class="mcard-top">
             <div class="mavatar">
               <img src="members/minami.jpg" alt="Minami" loading="lazy"
-                   onerror="this.style.display='none';this.parentElement.querySelector('.minit').style.display='flex';"/>
-              <div class="minit" aria-hidden="true">MI</div>
+                   />
+              
             </div>
             <div class="mcard-badge">Systemic Design</div>
           </div>
@@ -1093,8 +1116,8 @@
           <div class="mcard-top">
             <div class="mavatar">
               <img src="members/takahashi-yuya.jpg" alt="Yuya Takahashi" loading="lazy"
-                   onerror="this.style.display='none';this.parentElement.querySelector('.minit').style.display='flex';"/>
-              <div class="minit" aria-hidden="true">YT</div>
+                   />
+              
             </div>
             <div class="mcard-badge">Regional Revitalization</div>
           </div>
@@ -1120,8 +1143,8 @@
           <div class="mcard-top">
             <div class="mavatar">
               <img src="members/inoue-yu.jpg" alt="Yu Inoue" loading="lazy"
-                   onerror="this.style.display='none';this.parentElement.querySelector('.minit').style.display='flex';"/>
-              <div class="minit" aria-hidden="true">YI</div>
+                   />
+              
             </div>
             <div class="mcard-badge">Medicine</div>
           </div>
@@ -1147,8 +1170,8 @@
           <div class="mcard-top">
             <div class="mavatar">
               <img src="members/yanagida-hiroki.jpg" alt="Hiroki Yanagida" loading="lazy"
-                   onerror="this.style.display='none';this.parentElement.querySelector('.minit').style.display='flex';"/>
-              <div class="minit" aria-hidden="true">HY</div>
+                   />
+              
             </div>
             <div class="mcard-badge">Cultural Branding</div>
           </div>
@@ -1174,8 +1197,8 @@
           <div class="mcard-top">
             <div class="mavatar">
               <img src="members/sawasato-akane.jpg" alt="Akane Sawasato" loading="lazy"
-                   onerror="this.style.display='none';this.parentElement.querySelector('.minit').style.display='flex';"/>
-              <div class="minit" aria-hidden="true">AS</div>
+                   />
+              
             </div>
             <div class="mcard-badge">Public Health</div>
           </div>
@@ -1392,7 +1415,7 @@
   });
 
   // Member profiles (modal)
-  const MEMBER_DATA = {"nomura-rika": {"id": "nomura-rika", "name_ja": "野村吏花", "name_en": "Rika Nomura", "called_ja": "りかまんぼうと呼ぶ人もいます", "home": "福島市", "affiliation": "ファミリーホームまる家，福島県庁観光交流課 国際担当（Global Shapers Community沖縄Hub Outgoing-Vice Curator 2023）", "speciality": "観光・国際交流，子どもの社会的養護", "hobby": "イモリウム（アカハライモリ，苔，シダ植物）", "message": "福島の魅力を世界に発信することで，福島の人の暮らしがよくなるように工夫したいです．グローバルな視点を持って，福島と向き合える人を増やしていきたいです．", "hashtag": "#イモリ", "sns": "Facebook / Instagram", "role": "Tourism · International"}, "ando-chihiro": {"id": "ando-chihiro", "name_ja": "安藤千尋", "name_en": "Chihiro Ando", "called_ja": "", "home": "Koriyama city，Fukushima，Japan", "affiliation": "Japan Social Innovation Center JSIC / i.school，WIRED Sci-fi prototyping research lab（Design researcher）／Global Shapers Community Yokohama Hub Vice Curator 2024", "speciality": "Art Urbanism，Design Research，Education", "hobby": "Taking a walk，Farm hopping，Ramen eater🍜", "message": "I work as a design researcher and planner in several educational institutions and research labs. I’m interested in creating an environment full of creativity related to art and design, such as civic art activities, artist residency. I am a member of Fukushima-bu. Looking forward to seeing you all!", "hashtag": "#innovationeducation #urban #public&art", "sns": "Facebook / Instagram", "role": "Design Research"}, "noji-yuta": {"id": "noji-yuta", "name_ja": "野地勇太", "name_en": "Yuta Noji", "called_ja": "", "home": "Fukushima，Japan", "affiliation": "Beyond Lab Inc. CEO／U Share Inc.（Community Manager）／Global Shapers Community Yokohama Hub Outgoing-Impact Officer 2023", "speciality": "Education，Intercultural Communication，Study abroad", "hobby": "Camping，Traveling，Making costume", "message": "I have organized international exchange program for teenagers in Fukushima. I’d like to build intercultural environment in local school. I moved to Tokyo last year from Namie Town. I’m also a member of Fukushima-bu.", "hashtag": "#halloween #fukushima #minnesota #outdoor", "sns": "Facebook / Instagram", "role": "Education"}, "shirado-airi": {"id": "shirado-airi", "name_ja": "白土愛梨", "name_en": "Airi Shirado", "called_ja": "Airi", "home": "Iwaki city，Fukushima，Japan", "affiliation": "SYSTEM FORWARD INC.（CS）", "speciality": "dialogue，community", "hobby": "wind orchestra（B.sax🎷），crochet🧶，tanka（poem）📜", "message": "福島が，県内外に限らず多くの人が当事者性を感じながら誇りを持てる場所になれば嬉しいです．皆様と繋がれるのもとても楽しみです👏", "hashtag": "", "sns": "Facebook / Instagram（priv / pub）", "role": "Community"}, "sotome-kensho": {"id": "sotome-kensho", "name_ja": "早乙女健彰", "name_en": "Kensho Sotome", "called_ja": "", "home": "Grew up across the U.S.，Shanghai，and Japan — currently based in Kawagoe，Saitama", "affiliation": "CONCENT Inc.（Strategic Design Group）", "speciality": "Design Research，Prototyping，Human-centered Design", "hobby": "", "message": "Growing up across the U.S., China, and Japan, I learned to see the world through many lenses. I’m passionate about using design as a tool to connect people across boundaries — cultural, generational, or emotional — and to shape futures together, one dialogue at a time. I’m excited to shape new narratives with the people of Fukushima.", "hashtag": "", "sns": "Facebook / Instagram", "role": "Strategic Design"}, "lin-yingmei": {"id": "lin-yingmei", "name_ja": "林穎美", "name_en": "Yingmei Lin", "called_ja": "Lin-chan", "home": "China & Japan", "affiliation": "Graduate student of GSFS，UTokyo", "speciality": "Architecture，Community，Urban", "hobby": "Orchestra（flute），town walk", "message": "Fukushima is a place that holds special meaning for me. Although I first visited only two years ago, it now feels like a hometown to me. Let’s bring new energy and vitality to Fukushima!", "hashtag": "#architecture #autonomy #eastasia", "sns": "Facebook / Instagram", "role": "Architecture"}, "koma-kazuki": {"id": "koma-kazuki", "name_ja": "駒和樹", "name_en": "Kazuki Koma", "called_ja": "", "home": "Tokyo，Japan", "affiliation": "RIKKYO UNIVERSITY", "speciality": "SMEs（Small and Medium Enterprises）", "hobby": "Reading books，music，cycling", "message": "I have been involved in Odaka, Minami Soma City, for a year now. Odaka has a unique energy and vibe. Such like India. Through this experience, I would like to get to know other areas and people in Fukushima. I`m looking forward to see you!!", "hashtag": "#Foods", "sns": "Facebook / Instagram", "role": "SMEs"}, "kodama-takuto": {"id": "kodama-takuto", "name_ja": "児玉拓人", "name_en": "Takuto Kodama", "called_ja": "たくとと呼ばれることが多いです", "home": "広島市", "affiliation": "双葉町役場復興推進課", "speciality": "文学，人事", "hobby": "#旅行✈️　#カメラ📷", "message": "様々な人々が福島という場所に集い，何かを生み出す・生み出される環境を作っていきたいなと思っています！よろしくお願いします🙌", "hashtag": "", "sns": "Facebook / Instagram", "role": "Town Office"}, "minami": {"id": "minami", "name_ja": "Minami", "name_en": "Minami", "called_ja": "Minami", "home": "Tokyo，U.S.，Barcelona", "affiliation": "UTokyo College of Design，Laere inc.", "speciality": "Systemic Design，Education，Art，Design Research", "hobby": "", "message": "I'm interested in exploring how narratives and co-creation can help shape better conditions for both society and the environment. I'm especially drawn to regional areas in Japan and around the world, and to the often overlooked stories of the people who live there. I'm really looking forward to getting to know Fukushima and all of you!", "hashtag": "", "sns": "LinkedIn", "role": "Systemic Design"}, "takahashi-yuya": {"id": "takahashi-yuya", "name_ja": "高橋雄也", "name_en": "Yuya Takahashi", "called_ja": "Yuya", "home": "Otama village，Fukushima", "affiliation": "Representative Director of Spread From Fukushima（general incorporated association）", "speciality": "Business administration，Education，Start-up，Regional Revitalization", "hobby": "Sports，Reading，Travel，Talk", "message": "I’m really excited to meet new people, run various projects, and create a better Fukushima! Also I’m looking forward to seeing you all!", "hashtag": "", "sns": "Instagram / Facebook", "role": "Regional Revitalization"}, "inoue-yu": {"id": "inoue-yu", "name_ja": "井上 勇", "name_en": "Yu Inoue", "called_ja": "Yu", "home": "Fukushima city，Fukushima pre，Japan", "affiliation": "Fukushima Medical University Hospital", "speciality": "Medicine", "hobby": "Playing musical instruments，Engaging in dialogue，Watching movies", "message": "As a former evacuee and a current physician, I wish to take action for the sake of my hometown. I will live my life together with this land.", "hashtag": "#Medicine #dialogue #movie", "sns": "Facebook / Instagram", "role": "Medicine"}, "yanagida-hiroki": {"id": "yanagida-hiroki", "name_ja": "柳田寛樹", "name_en": "Hiroki Yanagida", "called_ja": "Hiroki", "home": "Kawasaki City，Kanagawa／Father from Nihonmatsu，Fukushima", "affiliation": "Founder & CEO of Aizunoaitsu Co., Ltd.／Sales at Sansan Inc.", "speciality": "Cultural Branding，Local Revitalization，Project Design", "hobby": "Driving，Talking by the irori，Making rice balls，Night walks by rivers，Mahjong", "message": "I’m excited to collaborate with all of you to bridge local culture and global innovation.", "hashtag": "", "sns": "Facebook / Instagram", "role": "Cultural Branding"}, "sawasato-akane": {"id": "sawasato-akane", "name_ja": "澤里朱音", "name_en": "Akane Sawasato", "called_ja": "Akane", "home": "Yokohama", "affiliation": "The Japanese Clinical Integrative Medicine Society and few more", "speciality": "Medicine，Public health", "hobby": "Travel", "message": "My passion is using science and healthcare to help communities heal, grow, and reconnect—especially in places like Fukushima, where resilience and innovation can shape a better future. I’m excited to join you all!", "hashtag": "", "sns": "LinkedIn", "role": "Public Health"}};
+  const MEMBER_DATA = {"nomura-rika": {"id": "nomura-rika", "name_ja": "野村吏花", "name_en": "Rika Nomura", "called_ja": "りかまんぼうと呼ぶ人もいます", "home": "福島市", "affiliation": "ファミリーホームまる家，福島県庁観光交流課 国際担当（Global Shapers Community沖縄Hub Outgoing-Vice Curator 2023）", "speciality": "観光・国際交流，子どもの社会的養護", "hobby": "イモリウム（アカハライモリ，苔，シダ植物）", "message": "福島の魅力を世界に発信することで，福島の人の暮らしがよくなるように工夫したいです．グローバルな視点を持って，福島と向き合える人を増やしていきたいです．", "hashtag": "#イモリ", "sns": "Facebook / Instagram", "role": "Tourism · International", "sns_urls": {"facebook": "https://www.facebook.com/nomurarika22/", "instagram": "https://www.instagram.com/rika_manbo/"}}, "ando-chihiro": {"id": "ando-chihiro", "name_ja": "安藤千尋", "name_en": "Chihiro Ando", "called_ja": "", "home": "Koriyama city，Fukushima，Japan", "affiliation": "Japan Social Innovation Center JSIC / i.school，WIRED Sci-fi prototyping research lab（Design researcher）／Global Shapers Community Yokohama Hub Vice Curator 2024", "speciality": "Art Urbanism，Design Research，Education", "hobby": "Taking a walk，Farm hopping，Ramen eater🍜", "message": "I work as a design researcher and planner in several educational institutions and research labs. I’m interested in creating an environment full of creativity related to art and design, such as civic art activities, artist residency. I am a member of Fukushima-bu. Looking forward to seeing you all!", "hashtag": "#innovationeducation #urban #public&art", "sns": "Facebook / Instagram", "role": "Design Research", "sns_urls": {"facebook": "https://www.facebook.com/andochihiro1011/", "instagram": "https://www.instagram.com/chihiroando_1011/?hl=ja"}}, "noji-yuta": {"id": "noji-yuta", "name_ja": "野地勇太", "name_en": "Yuta Noji", "called_ja": "", "home": "Fukushima，Japan", "affiliation": "Beyond Lab Inc. CEO／U Share Inc.（Community Manager）／Global Shapers Community Yokohama Hub Outgoing-Impact Officer 2023", "speciality": "Education，Intercultural Communication，Study abroad", "hobby": "Camping，Traveling，Making costume", "message": "I have organized international exchange program for teenagers in Fukushima. I’d like to build intercultural environment in local school. I moved to Tokyo last year from Namie Town. I’m also a member of Fukushima-bu.", "hashtag": "#halloween #fukushima #minnesota #outdoor", "sns": "Facebook / Instagram", "role": "Education", "sns_urls": {"facebook": "https://www.facebook.com/yuta.noji.12", "instagram": "https://www.instagram.com/yuta_noji95/"}}, "shirado-airi": {"id": "shirado-airi", "name_ja": "白土愛梨", "name_en": "Airi Shirado", "called_ja": "Airi", "home": "Iwaki city，Fukushima，Japan", "affiliation": "SYSTEM FORWARD INC.（CS）", "speciality": "dialogue，community", "hobby": "wind orchestra（B.sax🎷），crochet🧶，tanka（poem）📜", "message": "福島が，県内外に限らず多くの人が当事者性を感じながら誇りを持てる場所になれば嬉しいです．皆様と繋がれるのもとても楽しみです👏", "hashtag": "", "sns": "Facebook / Instagram（priv / pub）", "role": "Community", "sns_urls": {"facebook": "https://www.facebook.com/airidolidle"}}, "sotome-kensho": {"id": "sotome-kensho", "name_ja": "早乙女健彰", "name_en": "Kensho Sotome", "called_ja": "", "home": "Grew up across the U.S.，Shanghai，and Japan — currently based in Kawagoe，Saitama", "affiliation": "CONCENT Inc.（Strategic Design Group）", "speciality": "Design Research，Prototyping，Human-centered Design", "hobby": "", "message": "Growing up across the U.S., China, and Japan, I learned to see the world through many lenses. I’m passionate about using design as a tool to connect people across boundaries — cultural, generational, or emotional — and to shape futures together, one dialogue at a time. I’m excited to shape new narratives with the people of Fukushima.", "hashtag": "", "sns": "Facebook / Instagram", "role": "Strategic Design", "sns_urls": {"facebook": "https://www.facebook.com/profile.php?id=100085722982517", "instagram": "https://www.instagram.com/unaponnn/"}}, "lin-yingmei": {"id": "lin-yingmei", "name_ja": "林穎美", "name_en": "Yingmei Lin", "called_ja": "Lin-chan", "home": "China & Japan", "affiliation": "Graduate student of GSFS，UTokyo", "speciality": "Architecture，Community，Urban", "hobby": "Orchestra（flute），town walk", "message": "Fukushima is a place that holds special meaning for me. Although I first visited only two years ago, it now feels like a hometown to me. Let’s bring new energy and vitality to Fukushima!", "hashtag": "#architecture #autonomy #eastasia", "sns": "Facebook / Instagram", "role": "Architecture", "sns_urls": {"facebook": "https://www.facebook.com/eimi.yingmei.lin/", "instagram": "https://www.instagram.com/_lineimi/"}}, "koma-kazuki": {"id": "koma-kazuki", "name_ja": "駒和樹", "name_en": "Kazuki Koma", "called_ja": "", "home": "Tokyo，Japan", "affiliation": "RIKKYO UNIVERSITY", "speciality": "SMEs（Small and Medium Enterprises）", "hobby": "Reading books，music，cycling", "message": "I have been involved in Odaka, Minami Soma City, for a year now. Odaka has a unique energy and vibe. Such like India. Through this experience, I would like to get to know other areas and people in Fukushima. I`m looking forward to see you!!", "hashtag": "#Foods", "sns": "Facebook / Instagram", "role": "SMEs", "sns_urls": {"facebook": "https://www.facebook.com/share/16Yw6RfEB8/?mibextid=wwXIfr", "instagram": "https://www.instagram.com/koma_0413?igsh=MWFhY20zdGRqMm0zbA%3D%3D&utm_source=qr"}}, "kodama-takuto": {"id": "kodama-takuto", "name_ja": "児玉拓人", "name_en": "Takuto Kodama", "called_ja": "たくとと呼ばれることが多いです", "home": "広島市", "affiliation": "双葉町役場復興推進課", "speciality": "文学，人事", "hobby": "#旅行✈️　#カメラ📷", "message": "様々な人々が福島という場所に集い，何かを生み出す・生み出される環境を作っていきたいなと思っています！よろしくお願いします🙌", "hashtag": "", "sns": "Facebook / Instagram", "role": "Town Office", "sns_urls": {"facebook": "https://www.facebook.com/share/1EUtD4Z4pp/?mibextid=wwXIfr", "instagram": "https://www.instagram.com/takuto_dama"}}, "minami": {"id": "minami", "name_ja": "Minami", "name_en": "Minami", "called_ja": "Minami", "home": "Tokyo，U.S.，Barcelona", "affiliation": "UTokyo College of Design，Laere inc.", "speciality": "Systemic Design，Education，Art，Design Research", "hobby": "", "message": "I'm interested in exploring how narratives and co-creation can help shape better conditions for both society and the environment. I'm especially drawn to regional areas in Japan and around the world, and to the often overlooked stories of the people who live there. I'm really looking forward to getting to know Fukushima and all of you!", "hashtag": "", "sns": "LinkedIn", "role": "Systemic Design", "sns_urls": {"linkedin": "https://www.linkedin.com/in/minami-nakamura-795669204/"}}, "takahashi-yuya": {"id": "takahashi-yuya", "name_ja": "高橋雄也", "name_en": "Yuya Takahashi", "called_ja": "Yuya", "home": "Otama village，Fukushima", "affiliation": "Representative Director of Spread From Fukushima（general incorporated association）", "speciality": "Business administration，Education，Start-up，Regional Revitalization", "hobby": "Sports，Reading，Travel，Talk", "message": "I’m really excited to meet new people, run various projects, and create a better Fukushima! Also I’m looking forward to seeing you all!", "hashtag": "", "sns": "Instagram / Facebook", "role": "Regional Revitalization", "sns_urls": {"facebook": "https://www.facebook.com/share/1Ba7u8pDTX/?mibextid=wwXIfr", "instagram": "https://www.instagram.com/yuya.t.3128?igsh=MTIxYTRoc25qdWF1ZQ%3D%3D&utm_source=qr"}}, "inoue-yu": {"id": "inoue-yu", "name_ja": "井上 勇", "name_en": "Yu Inoue", "called_ja": "Yu", "home": "Fukushima city，Fukushima pre，Japan", "affiliation": "Fukushima Medical University Hospital", "speciality": "Medicine", "hobby": "Playing musical instruments，Engaging in dialogue，Watching movies", "message": "As a former evacuee and a current physician, I wish to take action for the sake of my hometown. I will live my life together with this land.", "hashtag": "#Medicine #dialogue #movie", "sns": "Facebook / Instagram", "role": "Medicine", "sns_urls": {"facebook": "https://www.facebook.com/profile.php?id=100004892656316", "instagram": "https://www.instagram.com/yu_ohanabatake/"}}, "yanagida-hiroki": {"id": "yanagida-hiroki", "name_ja": "柳田寛樹", "name_en": "Hiroki Yanagida", "called_ja": "Hiroki", "home": "Kawasaki City，Kanagawa／Father from Nihonmatsu，Fukushima", "affiliation": "Founder & CEO of Aizunoaitsu Co., Ltd.／Sales at Sansan Inc.", "speciality": "Cultural Branding，Local Revitalization，Project Design", "hobby": "Driving，Talking by the irori，Making rice balls，Night walks by rivers，Mahjong", "message": "I’m excited to collaborate with all of you to bridge local culture and global innovation.", "hashtag": "", "sns": "Facebook / Instagram", "role": "Cultural Branding", "sns_urls": {"facebook": "https://www.facebook.com/profile.php?id=100014841465281", "instagram": "https://www.instagram.com/_hiroki_0707/"}}, "sawasato-akane": {"id": "sawasato-akane", "name_ja": "澤里朱音", "name_en": "Akane Sawasato", "called_ja": "Akane", "home": "Yokohama", "affiliation": "The Japanese Clinical Integrative Medicine Society and few more", "speciality": "Medicine，Public health", "hobby": "Travel", "message": "My passion is using science and healthcare to help communities heal, grow, and reconnect—especially in places like Fukushima, where resilience and innovation can shape a better future. I’m excited to join you all!", "hashtag": "", "sns": "LinkedIn", "role": "Public Health", "sns_urls": {"linkedin": "https://www.linkedin.com/in/akane-sawasato-796a98216?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BOV6uZR22Q9O%2BIiaAt2Bh1A%3D%3D"}}};
   const modal = document.getElementById('member-modal');
   const modalName = document.getElementById('mmodal-name');
   const modalSub = document.getElementById('mmodal-sub');
@@ -1443,7 +1466,7 @@ function openMember(id){
     modalName.textContent = d.name_en || "Member";
 modalSub.textContent = d.role || '';
         modalChips.innerHTML = makeChips(d);
-modalAvatar.textContent = (d.name_en||'GS').split(/\s+/).slice(0,2).map(x=>x[0]).join('').toUpperCase();
+modalAvatar.textContent = "";
 
     const rows = [
       ['Home Country', d.home],
@@ -1465,6 +1488,16 @@ modalAvatar.textContent = (d.name_en||'GS').split(/\s+/).slice(0,2).map(x=>x[0])
 
     
     modalFoot.innerHTML = renderSocials(d);
+
+
+    const profileUrl = `members/${id}.html`;
+    const openBtn = document.createElement('a');
+    openBtn.href = profileUrl;
+    openBtn.className = 'msocial';
+    openBtn.style.cursor = 'pointer';
+    openBtn.style.textDecoration = 'none';
+    openBtn.innerHTML = `<span>Open profile page</span>`;
+    modalFoot.prepend(openBtn);
 modal.classList.add('open');
     modal.setAttribute('aria-hidden','false');
     document.body.style.overflow='hidden';
@@ -1512,6 +1545,44 @@ modal.classList.add('open');
   memberSearch?.addEventListener('input', applyMemberFilter);
   memberRole?.addEventListener('change', applyMemberFilter);
   applyMemberFilter();
+
+
+  // Inject social hover icons (Instagram / LinkedIn / Facebook)
+  const SOCIAL_ICONS = {
+    facebook: `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12.07C22 6.48 17.52 2 11.93 2S1.86 6.48 1.86 12.07c0 4.86 3.44 8.91 7.95 9.83v-6.95H7.62v-2.88h2.19V9.85c0-2.17 1.29-3.37 3.27-3.37.95 0 1.94.17 1.94.17v2.14h-1.09c-1.08 0-1.41.67-1.41 1.36v1.63h2.4l-.38 2.88h-2.02v6.95c4.51-.92 7.95-4.97 7.95-9.83Z"/></svg>`,
+    instagram: `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9Zm10.25 1.5a.75.75 0 1 1 0 1.5.75.75 0 0 1 0-1.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg>`,
+    linkedin: `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.58c0-1.33-.03-3.03-1.85-3.03-1.85 0-2.13 1.44-2.13 2.93v5.68H9.35V9h3.42v1.56h.05c.48-.9 1.65-1.85 3.4-1.85 3.64 0 4.31 2.4 4.31 5.51v6.23ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>`
+  };
+
+  document.querySelectorAll('.mcard-btn').forEach(btn => {
+    const id = btn.dataset.member;
+    const d = MEMBER_DATA[id];
+    const urls = (d && d.sns_urls) ? d.sns_urls : {};
+    const kinds = ['instagram','linkedin','facebook'].filter(k => urls[k]);
+    if(kinds.length === 0) return;
+
+    const wrap = document.createElement('div');
+    wrap.className = 'msocial-hover';
+    wrap.setAttribute('aria-label','Social links');
+
+    kinds.forEach(k => {
+      const a = document.createElement('a');
+      a.className = 'msocial-link';
+      a.href = urls[k];
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      a.setAttribute('aria-label', k);
+      a.innerHTML = SOCIAL_ICONS[k] || '';
+      // prevent opening modal when clicking icon
+      a.addEventListener('click', (e) => {
+        e.stopPropagation();
+      });
+      wrap.appendChild(a);
+    });
+
+    const avatar = btn.querySelector('.mavatar');
+    if(avatar) avatar.appendChild(wrap);
+  });
 modal.addEventListener('click', (e) => {
     const t = e.target;
     if(t && t.dataset && t.dataset.close) closeMember();
