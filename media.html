@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja" prefix="og: https://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>メディア・取材 | GSC Fukushima Hub</title>
+  <meta name="description" content="取材・報道向けの基本情報，ロゴ，問い合わせ窓口をまとめます．"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://inoue-u.github.io/gsc-fukushima-hub/media.html"/>
+  <link rel="alternate" hreflang="ja" href="https://inoue-u.github.io/gsc-fukushima-hub/media.html?lang=ja">
+  <link rel="alternate" hreflang="en" href="https://inoue-u.github.io/gsc-fukushima-hub/media.html?lang=en">
+  <link rel="alternate" hreflang="x-default" href="https://inoue-u.github.io/gsc-fukushima-hub/media.html">
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Media | GSC Fukushima Hub"/>
+  <meta property="og:description" content="Media resources, logo assets, and contact point for press inquiries."/>
+  <meta property="og:url" content="https://inoue-u.github.io/gsc-fukushima-hub/media.html"/>
+  <meta property="og:image" content="https://inoue-u.github.io/gsc-fukushima-hub/ogp.jpg"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta property="og:image:alt" content="Global Shapers Community Fukushima Hub"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Media | GSC Fukushima Hub"/>
+  <meta name="twitter:description" content="Media resources, logo assets, and contact point for press inquiries."/>
+  <meta name="twitter:image" content="https://inoue-u.github.io/gsc-fukushima-hub/ogp.jpg"/>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Global Shapers Community Fukushima Hub",
+  "alternateName": [
+    "GSC Fukushima Hub",
+    "GSC Fukushima",
+    "Fukushima Hub",
+    "グローバルシェイパーズ福島ハブ",
+    "GSC福島ハブ",
+    "福島ハブ"
+  ],
+  "url": "https://inoue-u.github.io/gsc-fukushima-hub/",
+  "logo": "https://inoue-u.github.io/gsc-fukushima-hub/ogp.jpg",
+  "foundingDate": "2025",
+  "areaServed": {
+    "@type": "Place",
+    "name": "Fukushima, Japan"
+  },
+  "parentOrganization": {
+    "@type": "Organization",
+    "name": "World Economic Forum"
+  },
+  "sameAs": [
+    "https://www.globalshapers.org/",
+    "https://initiatives.weforum.org/fukushima-hub/overview",
+    "https://www.instagram.com/gsc_fukushima/"
+  ]
+}
+  </script>
+  <style>
+    body{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;margin:0;background:#0a1628;color:#fff;}
+    header{padding:24px 20px;border-bottom:1px solid rgba(255,255,255,.08);}
+    main{max-width:980px;margin:0 auto;padding:28px 20px;line-height:1.9;color:rgba(255,255,255,.8);}
+    a{color:#00c2ff;}
+    .lang-en .ja{display:none!important}
+    .lang-ja .en{display:none!important}
+    .toggle{display:inline-flex;border:1px solid rgba(255,255,255,.15);border-radius:6px;overflow:hidden}
+    .toggle button{background:transparent;color:rgba(255,255,255,.7);border:none;padding:8px 12px;cursor:pointer}
+    .toggle button.active{background:#00c2ff;color:#0a1628;font-weight:700}
+    .nav a{margin-right:14px;text-decoration:none;color:rgba(255,255,255,.75)}
+    .nav a:hover{color:#fff}
+  </style>
+</head>
+<body class="lang-ja">
+<header>
+  <div class="nav">
+    <a href="https://inoue-u.github.io/gsc-fukushima-hub/">Home</a>
+    <a href="https://inoue-u.github.io/gsc-fukushima-hub/about.html">About</a>
+    <a href="https://inoue-u.github.io/gsc-fukushima-hub/fukushima-study-tour.html">Study Tour</a>
+    <a href="https://inoue-u.github.io/gsc-fukushima-hub/projects.html">Projects</a>
+    <a href="https://inoue-u.github.io/gsc-fukushima-hub/media.html">Media</a>
+    <a href="https://inoue-u.github.io/gsc-fukushima-hub/contact.html">Contact</a>
+  </div>
+  <div class="toggle" style="margin-top:14px">
+    <button id="btn-ja" class="active">JA</button><button id="btn-en">EN</button>
+  </div>
+</header>
+<main>
+  <h1><span class="ja">メディア・取材</span><span class="en">Media</span></h1>
+  <div class="ja">
+    <p>取材・報道のご相談は，お問い合わせページよりご連絡ください．可能な範囲で迅速に対応します．</p><ul><li>ロゴ：本ページに順次掲載</li><li>活動写真：必要に応じて提供</li><li>基本情報：概要ページ参照</li></ul>
+  </div>
+  <div class="en">
+    <p>For media inquiries, please contact us via the Contact page. We respond as promptly as possible.</p><ul><li>Logo: to be provided on this page</li><li>Photos: available upon request</li><li>Background: see the About page</li></ul>
+  </div>
+</main>
+<script>
+  const params=new URLSearchParams(location.search);
+  const lang=params.get("lang")||"ja";
+  const body=document.body;
+  function setLang(l){
+    body.classList.remove("lang-ja","lang-en");
+    body.classList.add(l==="en"?"lang-en":"lang-ja");
+    document.getElementById("btn-ja").classList.toggle("active", l!=="en");
+    document.getElementById("btn-en").classList.toggle("active", l==="en");
+  }
+  setLang(lang);
+  document.getElementById("btn-ja").onclick=()=>{params.set("lang","ja"); history.replaceState(null,"","?"+params.toString()); setLang("ja");};
+  document.getElementById("btn-en").onclick=()=>{params.set("lang","en"); history.replaceState(null,"","?"+params.toString()); setLang("en");};
+</script>
+</body>
+</html>
