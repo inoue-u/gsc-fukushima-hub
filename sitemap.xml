@@ -4,12 +4,38 @@
 
 <url>
 <loc>https://inoue-u.github.io/gsc-fukushima-hub/</loc>
-<priority>1.0</priority>
+</url>
+
+<url>
+<loc>https://inoue-u.github.io/gsc-fukushima-hub/about.html</loc>
+</url>
+
+<url>
+<loc>https://inoue-u.github.io/gsc-fukushima-hub/projects.html</loc>
+</url>
+
+<url>
+<loc>https://inoue-u.github.io/gsc-fukushima-hub/fukushima-study-tour.html</loc>
+</url>
+
+<url>
+<loc>https://inoue-u.github.io/gsc-fukushima-hub/members.html</loc>
+</url>
+
+<url>
+<loc>https://inoue-u.github.io/gsc-fukushima-hub/join.html</loc>
+</url>
+
+<url>
+<loc>https://inoue-u.github.io/gsc-fukushima-hub/contact.html</loc>
+</url>
+
+<url>
+<loc>https://inoue-u.github.io/gsc-fukushima-hub/news.html</loc>
 </url>
 
 <url>
 <loc>https://inoue-u.github.io/gsc-fukushima-hub/faq.html</loc>
-<priority>0.8</priority>
 </url>
 
 </urlset>
