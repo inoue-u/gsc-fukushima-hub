@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://inoue-u.github.io/gsc-fukushima-hub/sitemap.xml
+Sitemap:
+https://inoue-u.github.io/gsc-fukushima-hub/sitemap.xml
