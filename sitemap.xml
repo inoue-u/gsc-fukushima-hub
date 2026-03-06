@@ -4,17 +4,17 @@
 
   <!-- トップページ -->
   <url>
-    <loc>https://gsc-fukushima.org/</loc>
+    <loc>https://gsc-fukushima.com/</loc>
     <lastmod>2026-03-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://gsc-fukushima.org/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://gsc-fukushima.org/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gsc-fukushima.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gsc-fukushima.com/"/>
   </url>
 
   <!-- About -->
   <url>
-    <loc>https://gsc-fukushima.org/about.html</loc>
+    <loc>https://gsc-fukushima.com/about.html</loc>
     <lastmod>2026-03-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -22,7 +22,7 @@
 
   <!-- Flagship Project -->
   <url>
-    <loc>https://gsc-fukushima.org/fukushima-study-tour.html</loc>
+    <loc>https://gsc-fukushima.com/fukushima-study-tour.html</loc>
     <lastmod>2026-03-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -30,7 +30,7 @@
 
   <!-- Projects -->
   <url>
-    <loc>https://gsc-fukushima.org/projects.html</loc>
+    <loc>https://gsc-fukushima.com/projects.html</loc>
     <lastmod>2026-03-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -38,7 +38,7 @@
 
   <!-- Members -->
   <url>
-    <loc>https://gsc-fukushima.org/members.html</loc>
+    <loc>https://gsc-fukushima.com/members.html</loc>
     <lastmod>2026-03-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -46,79 +46,79 @@
 
   <!-- Member profiles -->
   <url>
-    <loc>https://gsc-fukushima.org/nomura-rika.html</loc>
+    <loc>https://gsc-fukushima.com/nomura-rika.html</loc>
     <lastmod>2026-03-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://gsc-fukushima.org/ando-chihiro.html</loc>
+    <loc>https://gsc-fukushima.com/ando-chihiro.html</loc>
     <lastmod>2026-03-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://gsc-fukushima.org/shirado-airi.html</loc>
+    <loc>https://gsc-fukushima.com/shirado-airi.html</loc>
     <lastmod>2026-03-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://gsc-fukushima.org/sawasato-akane.html</loc>
+    <loc>https://gsc-fukushima.com/sawasato-akane.html</loc>
     <lastmod>2026-03-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://gsc-fukushima.org/yanagida-hiroki.html</loc>
+    <loc>https://gsc-fukushima.com/yanagida-hiroki.html</loc>
     <lastmod>2026-03-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://gsc-fukushima.org/koma-kazuki.html</loc>
+    <loc>https://gsc-fukushima.com/koma-kazuki.html</loc>
     <lastmod>2026-03-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://gsc-fukushima.org/sotome-kensho.html</loc>
+    <loc>https://gsc-fukushima.com/sotome-kensho.html</loc>
     <lastmod>2026-03-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://gsc-fukushima.org/minami.html</loc>
+    <loc>https://gsc-fukushima.com/minami.html</loc>
     <lastmod>2026-03-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://gsc-fukushima.org/kodama-takuto.html</loc>
+    <loc>https://gsc-fukushima.com/kodama-takuto.html</loc>
     <lastmod>2026-03-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://gsc-fukushima.org/inoue-yu.html</loc>
+    <loc>https://gsc-fukushima.com/inoue-yu.html</loc>
     <lastmod>2026-03-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://gsc-fukushima.org/takahashi-yuya.html</loc>
+    <loc>https://gsc-fukushima.com/takahashi-yuya.html</loc>
     <lastmod>2026-03-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://gsc-fukushima.org/noji-yuta.html</loc>
+    <loc>https://gsc-fukushima.com/noji-yuta.html</loc>
     <lastmod>2026-03-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://gsc-fukushima.org/lin-yingmei.html</loc>
+    <loc>https://gsc-fukushima.com/lin-yingmei.html</loc>
     <lastmod>2026-03-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -126,7 +126,7 @@
 
   <!-- News -->
   <url>
-    <loc>https://gsc-fukushima.org/news.html</loc>
+    <loc>https://gsc-fukushima.com/news.html</loc>
     <lastmod>2026-03-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -134,7 +134,7 @@
 
   <!-- Join -->
   <url>
-    <loc>https://gsc-fukushima.org/join.html</loc>
+    <loc>https://gsc-fukushima.com/join.html</loc>
     <lastmod>2026-03-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -142,7 +142,7 @@
 
   <!-- FAQ -->
   <url>
-    <loc>https://gsc-fukushima.org/faq.html</loc>
+    <loc>https://gsc-fukushima.com/faq.html</loc>
     <lastmod>2026-03-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -150,7 +150,7 @@
 
   <!-- Media -->
   <url>
-    <loc>https://gsc-fukushima.org/media.html</loc>
+    <loc>https://gsc-fukushima.com/media.html</loc>
     <lastmod>2026-03-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -158,7 +158,7 @@
 
   <!-- Contact -->
   <url>
-    <loc>https://gsc-fukushima.org/contact.html</loc>
+    <loc>https://gsc-fukushima.com/contact.html</loc>
     <lastmod>2026-03-06</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>

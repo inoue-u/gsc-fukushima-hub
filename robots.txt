@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://gsc-fukushima.org/sitemap.xml
+Sitemap: https://gsc-fukushima.com/sitemap.xml
