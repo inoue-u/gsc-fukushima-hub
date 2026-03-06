@@ -266,3 +266,106 @@ document.getElementById('mmodal-close').addEventListener('click', closeMemberMod
 document.getElementById('mmodal-overlay').addEventListener('click', closeMemberModal);
 document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeMemberModal(); });
 
+
+/* ── TADAIMA FUKUSHIMA PHOTO GALLERY ── */
+(function() {
+  var PROXY = 'https://api.allorigins.win/get?url=';
+  var TARGET = 'https://tadaima-fukushima.jp/';
+  var COLS = 6; // images to show at once
+  var allImages = [];
+
+  function extractImages(html) {
+    var parser = new DOMParser();
+    var doc = parser.parseFromString(html, 'text/html');
+    var imgs = [];
+    doc.querySelectorAll('img').forEach(function(img) {
+      var src = img.src || img.getAttribute('src') || '';
+      // resolve relative URLs against target origin
+      if (src && !src.startsWith('data:')) {
+        try {
+          var abs = new URL(src, TARGET).href;
+          // filter out tiny icons/logos (need meaningful photos)
+          if (/\.(jpe?g|png|webp)/i.test(abs) &&
+              !/logo|icon|avatar|banner|noimage|placeholder|dummy|blank/i.test(abs)) {
+            imgs.push(abs);
+          }
+        } catch(e) {}
+      }
+    });
+    // also check srcset
+    doc.querySelectorAll('[srcset]').forEach(function(el) {
+      el.getAttribute('srcset').split(',').forEach(function(part) {
+        var url = part.trim().split(/\s+/)[0];
+        if (url) {
+          try {
+            var abs = new URL(url, TARGET).href;
+            if (/\.(jpe?g|png|webp)/i.test(abs)) imgs.push(abs);
+          } catch(e) {}
+        }
+      });
+    });
+    // deduplicate
+    return imgs.filter(function(v, i, a) { return a.indexOf(v) === i; });
+  }
+
+  function shuffle(arr) {
+    for (var i = arr.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = arr[i]; arr[i] = arr[j]; arr[j] = tmp;
+    }
+    return arr;
+  }
+
+  function renderGallery(images) {
+    var grid = document.getElementById('tadaima-gallery-grid');
+    if (!grid) return;
+    grid.innerHTML = '';
+    var pick = shuffle(images.slice()).slice(0, COLS);
+    pick.forEach(function(src) {
+      var item = document.createElement('div');
+      item.className = 'gallery-item';
+      var img = document.createElement('img');
+      img.alt = 'Tadaima Fukushima';
+      img.loading = 'lazy';
+      img.onload = function() { img.classList.add('loaded'); };
+      img.onerror = function() { item.style.display = 'none'; };
+      img.src = src;
+      item.appendChild(img);
+      grid.appendChild(item);
+    });
+  }
+
+  function showError(msg) {
+    var grid = document.getElementById('tadaima-gallery-grid');
+    if (grid) grid.innerHTML = '<div class="gallery-error">' + msg + '</div>';
+  }
+
+  function loadGallery() {
+    if (allImages.length > 0) { renderGallery(allImages); return; }
+    var grid = document.getElementById('tadaima-gallery-grid');
+    if (grid) grid.innerHTML = '<div class="gallery-loading"><span class="gallery-spinner"></span></div>';
+
+    fetch(PROXY + encodeURIComponent(TARGET))
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        var html = data.contents || '';
+        allImages = extractImages(html);
+        if (allImages.length === 0) {
+          showError('画像を取得できませんでした / Could not load images');
+        } else {
+          renderGallery(allImages);
+        }
+      })
+      .catch(function() {
+        showError('読み込みに失敗しました / Failed to load');
+      });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    loadGallery();
+    var btn = document.getElementById('gallery-shuffle');
+    if (btn) btn.addEventListener('click', function() { renderGallery(allImages); });
+    // auto-shuffle every hour
+    setInterval(function() { renderGallery(allImages); }, 60 * 60 * 1000);
+  });
+})();
