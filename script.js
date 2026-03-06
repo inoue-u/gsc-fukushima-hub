@@ -365,5 +365,7 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close
     loadGallery();
     var btn = document.getElementById('gallery-shuffle');
     if (btn) btn.addEventListener('click', function() { renderGallery(allImages); });
+    // auto-shuffle every hour
+    setInterval(function() { renderGallery(allImages); }, 60 * 60 * 1000);
   });
 })();
