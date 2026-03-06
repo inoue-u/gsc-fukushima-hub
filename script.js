@@ -271,7 +271,6 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close
 (function() {
   var PROXY = 'https://api.allorigins.win/get?url=';
   var TARGET = 'https://tadaima-fukushima.jp/';
-  var COLS = 1; // images to show at once
   var allImages = [];
 
   function extractImages(html) {
@@ -319,20 +318,26 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close
   function renderGallery(images) {
     var grid = document.getElementById('tadaima-gallery-grid');
     if (!grid) return;
-    grid.innerHTML = '';
-    var pick = shuffle(images.slice()).slice(0, COLS);
-    pick.forEach(function(src) {
+    var candidates = shuffle(images.slice());
+    var idx = 0;
+    function tryNext() {
+      if (idx >= candidates.length) {
+        showError('画像を取得できませんでした / Could not load images');
+        return;
+      }
+      var src = candidates[idx++];
+      grid.innerHTML = '';
       var item = document.createElement('div');
       item.className = 'gallery-item';
       var img = document.createElement('img');
       img.alt = 'Tadaima Fukushima';
-      img.loading = 'lazy';
       img.onload = function() { img.classList.add('loaded'); };
-      img.onerror = function() { item.style.display = 'none'; };
+      img.onerror = tryNext;
       img.src = src;
       item.appendChild(img);
       grid.appendChild(item);
-    });
+    }
+    tryNext();
   }
 
   function showError(msg) {
