@@ -995,9 +995,7 @@ section {
 
 /* TADAIMA GALLERY */
 .tadaima-gallery {
-  background: var(--light);
-  padding: var(--sec-pad) var(--pad);
-  text-align: center;
+  display: none;
 }
 
 .gallery-caption {
@@ -1253,10 +1251,63 @@ section {
   pointer-events: none;
 }
 
-.join-inner {
+.join-layout {
   position: relative;
   z-index: 2;
-  max-width: 680px;
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 4rem;
+  align-items: center;
+  max-width: 1300px;
+}
+
+.join-inner {
+  position: relative;
+}
+
+.join-gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.join-gallery .gallery-grid {
+  max-width: 100%;
+  margin: 0;
+  min-height: 200px;
+}
+
+.join-gallery .gallery-caption {
+  color: rgba(255,255,255,0.3);
+  margin-bottom: 0;
+}
+
+.join-gallery .gallery-src-link {
+  color: inherit;
+}
+
+.join-gallery .gallery-shuffle {
+  font-size: 0.8rem;
+  padding: 0.5rem 1.6rem;
+  border: 1.5px solid rgba(255,255,255,0.3);
+  border-radius: 99px;
+  background: transparent;
+  color: rgba(255,255,255,0.6);
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.join-gallery .gallery-shuffle:hover {
+  background: rgba(255,255,255,0.1);
+  color: var(--white);
+  border-color: rgba(255,255,255,0.6);
+}
+
+.join-gallery .gallery-spinner {
+  border-color: rgba(255,255,255,0.15);
+  border-top-color: rgba(255,255,255,0.5);
 }
 
 .join-eyebrow {
@@ -1694,6 +1745,11 @@ footer {
 
   .join {
     padding: 5rem 1.5rem;
+  }
+
+  .join-layout {
+    grid-template-columns: 1fr;
+    gap: 3rem;
   }
 
   .cstat {
