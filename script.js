@@ -179,6 +179,17 @@ const memberData = {
     hashtags: ['#architecture','#autonomy','#eastasia'],
     message: "Fukushima is a place that holds special meaning for me. Although I first visited only two years ago, it now feels like a hometown to me. Let's bring new energy and vitality to Fukushima!",
     sns: [['Facebook','https://www.facebook.com/eimi.yingmei.lin/'],['Instagram','https://www.instagram.com/_lineimi/']]
+  },
+  'yuta-noji': {
+    name: 'Yuta Noji',
+    role: 'Alumni',
+    country: 'from Fukushima, JAPAN',
+    affiliation: 'Beyond Lab Inc. CEO / U Share Inc. (Community Manager)\nGlobal Shapers Community Yokohama Hub, Outgoing-Impact Officer 2023',
+    speciality: 'Education, Intercultural Communication, Study abroad',
+    hobby: 'Camping, Traveling, Making costume',
+    hashtags: ['#halloween','#fukushima','#minnesota','#outdoor'],
+    message: "I have organized international exchange program for teenagers in Fukushima. I'd like to build intercultural environment in local school. I moved to Tokyo last year from Namie Town. I'm also a member of Fukushima-bu.",
+    sns: [['Facebook','https://www.facebook.com/yuta.noji.12'],['Instagram','https://www.instagram.com/yuta_noji95/']]
   }
 };
 
