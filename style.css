@@ -1681,9 +1681,11 @@ footer {
 
   .hero-left {
     width: 100%;
+    order: 2;
   }
 
   .hero-logo-right {
+    order: 1;
     max-width: none;
     width: 100%;
     justify-content: center;
