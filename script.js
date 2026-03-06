@@ -271,7 +271,7 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close
 (function() {
   var PROXY = 'https://api.allorigins.win/get?url=';
   var TARGET = 'https://tadaima-fukushima.jp/';
-  var COLS = 6; // images to show at once
+  var COLS = 1; // images to show at once
   var allImages = [];
 
   function extractImages(html) {
