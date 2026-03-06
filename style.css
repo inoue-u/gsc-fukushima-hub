@@ -1529,7 +1529,7 @@ a.jhub-card:hover {
 
 .jhub-img {
   width: 100%;
-  aspect-ratio: 16 / 9;
+  height: 90px;
   object-fit: contain;
   border-radius: 6px;
   margin-bottom: 0.5rem;
