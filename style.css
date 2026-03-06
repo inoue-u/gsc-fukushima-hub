@@ -151,6 +151,29 @@ nav {
   gap: 0.8rem;
 }
 
+.nav-socials {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.nav-social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 6px;
+  color: var(--navy);
+  text-decoration: none;
+  transition: color 0.2s, background 0.2s;
+}
+
+.nav-social-btn:hover {
+  color: var(--accent);
+  background: rgba(0,194,255,0.08);
+}
+
 .nav-cta {
   font-size: 0.75rem;
   font-weight: 600;
@@ -217,6 +240,28 @@ nav {
 
 .mob-link:hover,.mob-link.acc {
   color: var(--sakura);
+}
+
+.mob-socials {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.mob-social-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  transition: color 0.2s;
+}
+
+.mob-social-btn:hover {
+  color: var(--white);
 }
 
 /* HERO */
