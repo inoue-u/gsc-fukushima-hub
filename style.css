@@ -1438,12 +1438,23 @@ footer {
 
   .hero-layout {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 1.5rem;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .hero-left {
+    width: 100%;
   }
 
   .hero-logo-right {
-    display: none;
+    max-width: none;
+    width: 100%;
+    justify-content: center;
+    padding: 1.5rem 2rem;
+  }
+
+  .hero-logo-right img {
+    height: clamp(14rem, 45vw, 20rem) !important;
   }
 
   .btn-accent,.btn-outline {
@@ -1565,6 +1576,10 @@ footer {
 
   .hero-title {
     font-size: clamp(2.8rem,13vw,4rem);
+  }
+
+  .hero-logo-right img {
+    height: clamp(12rem, 70vw, 16rem) !important;
   }
 
   .hero-sub {
