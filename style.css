@@ -979,6 +979,66 @@ section {
   color: var(--sakura);
 }
 
+/* REPORTS */
+.reports-sec {
+  background: var(--white);
+}
+
+.reports-note-cta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin-top: 1rem;
+  font-size: 0.82rem;
+  color: var(--gray);
+}
+
+.reports-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.rcard {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--white);
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+
+.rcard:hover {
+  box-shadow: 0 8px 32px rgba(26,68,128,0.10);
+  transform: translateY(-2px);
+}
+
+.rcard-img-link { display: block; line-height: 0; }
+.rcard-img { width: 100%; height: 200px; object-fit: cover; display: block; }
+.rcard-body { padding: 1.4rem 1.6rem 1.6rem; }
+
+.rcard-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
+
+.rcard h3 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1.55;
+}
+
+.rdate {
+  font-size: 0.65rem;
+  color: var(--light-gray);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
 /* NEWS */
 .news-sec {
   background: var(--light);
@@ -986,7 +1046,7 @@ section {
 
 .news-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
   gap: 1px;
   background: var(--border);
   border: 1px solid var(--border);
@@ -1003,10 +1063,6 @@ section {
   background: rgba(26,68,128,0.02);
 }
 
-.ncard.feat {
-  grid-row: span 2;
-}
-
 .ntag {
   font-size: 0.6rem;
   font-weight: 700;
@@ -1017,13 +1073,11 @@ section {
 }
 
 .ncard h3 {
+  font-size: 0.95rem;
   font-weight: 600;
   color: var(--navy);
   line-height: 1.4;
 }
-
-.ncard.feat h3 { font-size: 1.3rem; }
-.ncard:not(.feat) h3 { font-size: 0.95rem; }
 
 .ncard p {
   font-size: 0.82rem;
@@ -1491,12 +1545,12 @@ footer {
     grid-template-columns: 1fr 1fr;
   }
 
-  .news-grid {
-    grid-template-columns: 1fr;
+  .reports-grid {
+    grid-template-columns: 1fr 1fr;
   }
 
-  .ncard.feat {
-    grid-row: auto;
+  .news-grid {
+    grid-template-columns: 1fr;
   }
 
   .japan-hubs-grid {
@@ -1650,6 +1704,10 @@ footer {
   .mavatar {
     width: 48px;
     height: 48px;
+  }
+
+  .reports-grid {
+    grid-template-columns: 1fr;
   }
 
   .news-grid {
