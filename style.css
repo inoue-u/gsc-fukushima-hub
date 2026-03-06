@@ -1527,6 +1527,14 @@ a.jhub-card:hover {
   background: rgba(26,68,128,0.05);
 }
 
+.jhub-img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+}
+
 .jhub-city {
   font-size: 0.95rem;
   font-weight: 700;
