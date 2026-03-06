@@ -1530,9 +1530,10 @@ a.jhub-card:hover {
 .jhub-img {
   width: 100%;
   aspect-ratio: 16 / 9;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 6px;
   margin-bottom: 0.5rem;
+  background: var(--bg);
 }
 
 .jhub-city {
