@@ -1681,9 +1681,11 @@ footer {
 
   .hero-left {
     width: 100%;
+    order: 2;
   }
 
   .hero-logo-right {
+    order: 1;
     max-width: none;
     width: 100%;
     justify-content: center;
@@ -1731,6 +1733,16 @@ footer {
   .reports-grid {
     grid-template-columns: 1fr 1fr;
   }
+
+  /* Section order on mobile: Reports → About → Project → Community */
+  .sections-reorder {
+    display: flex;
+    flex-direction: column;
+  }
+  .sections-reorder .reports-sec { order: 1; }
+  .sections-reorder .about       { order: 2; }
+  .sections-reorder .project     { order: 3; }
+  .sections-reorder .community   { order: 4; }
 
   .news-grid {
     grid-template-columns: 1fr;
