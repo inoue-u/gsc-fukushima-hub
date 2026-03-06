@@ -440,6 +440,7 @@ nav {
   animation: fadeUp 0.7s 0.35s forwards;
   position: relative;
   padding: 2rem;
+  max-width: 45%;
 }
 
 .hero-logo-right::before {
