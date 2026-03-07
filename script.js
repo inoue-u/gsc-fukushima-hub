@@ -43,6 +43,7 @@ document.querySelectorAll('.fade-up, .value-row, .cstat, .mcard').forEach((el, i
 // Member modal
 const memberData = {
   'rika-nomura': {
+    badges: [{year:'FY2025', role:'Curator', cls:'curator'}, {role:'Founding Curator', cls:'founding'}],
     name: '野村吏花 (Rika Nomura)',
     nickname: 'りかまんぼう',
     role: 'Founding Curator & Curator',
@@ -55,6 +56,7 @@ const memberData = {
     sns: [['Facebook','https://www.facebook.com/nomurarika22/'],['Instagram','https://www.instagram.com/rika_manbo/']]
   },
   'chihiro-ando': {
+    badges: [{year:'FY2025', role:'Vice Curator', cls:'curator'}],
     name: 'Chihiro Ando',
     role: 'Vice Curator',
     country: 'From Koriyama city, Fukushima, JAPAN',
@@ -66,6 +68,7 @@ const memberData = {
     sns: [['Facebook','https://www.facebook.com/andochihiro1011/'],['Instagram','https://www.instagram.com/chihiroando_1011/?hl=ja']]
   },
   'airi-shirado': {
+    badges: [{role:'Global Shaper'}],
     name: 'Airi Shirado',
     role: 'Global Shaper',
     country: 'Iwaki city, Fukushima, Japan',
@@ -77,6 +80,7 @@ const memberData = {
     sns: [['Facebook','https://www.facebook.com/airidolidle']]
   },
   'akane-sawasato': {
+    badges: [{year:'FY2026', role:'Curator', cls:'curator'}],
     name: 'Akane Sawasato',
     role: 'Global Shaper',
     country: 'Yokohama',
@@ -88,6 +92,7 @@ const memberData = {
     sns: [['LinkedIn','https://www.linkedin.com/in/akane-sawasato-796a98216?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BOV6uZR22Q9O%2BIiaAt2Bh1A%3D%3D']]
   },
   'hiroki-yanagida': {
+    badges: [{role:'Global Shaper'}],
     name: 'Hiroki Yanagida',
     nickname: 'Hiroki',
     role: 'Global Shaper',
@@ -100,6 +105,7 @@ const memberData = {
     sns: [['Facebook','https://www.facebook.com/profile.php?id=100014841465281'],['Instagram','https://www.instagram.com/_hiroki_0707/']]
   },
   'kazuki-koma': {
+    badges: [{role:'Global Shaper'}],
     name: 'Kazuki Koma',
     role: 'Global Shaper',
     country: 'Tokyo, Japan',
@@ -111,6 +117,7 @@ const memberData = {
     sns: [['Facebook','https://www.facebook.com/share/16Yw6RfEB8/?mibextid=wwXIfr'],['Instagram','https://www.instagram.com/koma_0413?igsh=MWFhY20zdGRqMm0zbA%3D%3D&utm_source=qr']]
   },
   'kensho-sotome': {
+    badges: [{role:'Global Shaper'}],
     name: 'Kensho Sotome',
     role: 'Global Shaper',
     country: 'Grew up across the U.S., Shanghai, and Japan — currently based in Kawagoe, Saitama',
@@ -122,6 +129,7 @@ const memberData = {
     sns: [['Facebook','https://www.facebook.com/profile.php?id=100085722982517'],['Instagram','https://www.instagram.com/unaponnn/']]
   },
   'minami-nakamura': {
+    badges: [{role:'Global Shaper'}],
     name: 'Minami Nakamura',
     nickname: 'Minami',
     role: 'Global Shaper',
@@ -134,6 +142,7 @@ const memberData = {
     sns: [['LinkedIn','https://www.linkedin.com/in/minami-nakamura-795669204/']]
   },
   'takuto-kodama': {
+    badges: [{role:'Global Shaper'}],
     name: '児玉拓人 (Takuto Kodama)',
     nickname: 'たくと',
     role: 'Global Shaper',
@@ -146,6 +155,7 @@ const memberData = {
     sns: [['Facebook','https://www.facebook.com/share/1EUtD4Z4pp/?mibextid=wwXIfr'],['Instagram','https://www.instagram.com/takuto_dama']]
   },
   'yu-inoue': {
+    badges: [{year:'FY2026', role:'Impact Officer', cls:'curator'}],
     name: 'Yu Inoue',
     nickname: 'Yu',
     role: 'Global Shaper',
@@ -158,6 +168,7 @@ const memberData = {
     sns: [['Facebook','https://www.facebook.com/profile.php?id=100004892656316'],['Instagram','https://www.instagram.com/yu_ohanabatake/']]
   },
   'yuya-takahashi': {
+    badges: [{year:'FY2026', role:'Vice Curator', cls:'curator'}],
     name: 'Yuya Takahashi',
     nickname: 'Yuya',
     role: 'Global Shaper',
@@ -170,6 +181,7 @@ const memberData = {
     sns: [['Facebook','https://www.facebook.com/share/1Ba7u8pDTX/?mibextid=wwXIfr'],['Instagram','https://www.instagram.com/yuya.t.3128?igsh=MTIxYTRoc25qdWF1ZQ%3D%3D&utm_source=qr']]
   },
   'yingmei-lin': {
+    badges: [{role:'Global Shaper'}],
     name: 'Yingmei Lin (Lin-chan)',
     role: 'Global Shaper',
     country: 'China & Japan',
@@ -181,6 +193,7 @@ const memberData = {
     sns: [['Facebook','https://www.facebook.com/eimi.yingmei.lin/'],['Instagram','https://www.instagram.com/_lineimi/']]
   },
   'yuta-noji': {
+    badges: [{year:'FY2025', role:'Impact Officer', cls:'curator'}],
     name: 'Yuta Noji',
     role: 'Alumni',
     country: 'from Fukushima, JAPAN',
@@ -192,6 +205,42 @@ const memberData = {
     sns: [['Facebook','https://www.facebook.com/yuta.noji.12'],['Instagram','https://www.instagram.com/yuta_noji95/']]
   }
 };
+
+
+// Shared badge renderer (used by both cards and modal)
+function renderBadges(badges, container) {
+  container.innerHTML = '';
+  if (!badges || !badges.length) return;
+  badges.forEach(function(b) {
+    if (b.year) {
+      var y = document.createElement('div');
+      y.className = 'myear';
+      var yn = b.year.replace('FY', '');
+      y.innerHTML = '<span class="ja">' + yn + '年度</span><span class="en">' + b.year + '</span>';
+      container.appendChild(y);
+    }
+    var r = document.createElement('div');
+    r.className = 'mrole' + (b.cls ? ' ' + b.cls : '');
+    r.textContent = b.role;
+    container.appendChild(r);
+  });
+}
+
+// Render badges on member cards from memberData (single source of truth)
+function initCardBadges() {
+  document.querySelectorAll('.mcard[data-member]').forEach(function(card) {
+    var key = card.dataset.member;
+    var d = memberData[key];
+    if (!d || !d.badges) return;
+    var info = Array.from(card.children).find(function(el) { return !el.classList.contains('mavatar'); });
+    if (!info) return;
+    info.querySelectorAll('.myear, .mrole').forEach(function(el) { el.remove(); });
+    var bc = document.createElement('div');
+    bc.className = 'mbadges';
+    renderBadges(d.badges, bc);
+    info.appendChild(bc);
+  });
+}
 
 function openMemberModal(key) {
   const d = memberData[key];
@@ -205,7 +254,16 @@ function openMemberModal(key) {
   if (avatarSrc) avatarEl.appendChild(avatarSrc.cloneNode(true));
 
   document.getElementById('mmodal-name').textContent = d.name;
-  document.getElementById('mmodal-role').textContent = d.role;
+  var roleEl = document.getElementById('mmodal-role');
+  roleEl.innerHTML = '';
+  if (d.badges) {
+    var bc = document.createElement('div');
+    bc.className = 'mbadges mbadges--modal';
+    renderBadges(d.badges, bc);
+    roleEl.appendChild(bc);
+  } else {
+    roleEl.textContent = d.role;
+  }
   document.getElementById('mmodal-country').textContent = d.country || '';
 
   const body = document.getElementById('mmodal-body');
@@ -260,6 +318,7 @@ function closeMemberModal() {
 document.querySelectorAll('.mcard[data-member]').forEach(function(card) {
   card.addEventListener('click', function() { openMemberModal(card.dataset.member); });
 });
+initCardBadges();
 
 
 document.getElementById('mmodal-close').addEventListener('click', closeMemberModal);
