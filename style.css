@@ -1024,6 +1024,29 @@ section {
   color: var(--sakura);
 }
 
+.mrole.founding {
+  color: var(--peach);
+}
+
+.mbadges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 6px;
+  align-items: center;
+}
+
+.mbadges--modal {
+  gap: 4px 8px;
+}
+
+.mbadges--modal .mrole {
+  font-size: 0.78rem;
+}
+
+.mbadges--modal .myear {
+  font-size: 0.65rem;
+}
+
 .myear {
   font-size: 0.58rem;
   font-weight: 700;
