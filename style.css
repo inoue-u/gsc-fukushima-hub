@@ -888,6 +888,96 @@ section {
   border-color: var(--accent);
 }
 
+/* PROJECT SUB-GRID */
+.proj-sub-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.proj-sub-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 2rem 2rem 1.8rem;
+  border: 1px solid var(--border);
+  background: var(--light);
+  text-decoration: none;
+  color: inherit;
+  transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.proj-sub-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--navy);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s;
+}
+
+.proj-sub-card:hover {
+  box-shadow: 0 6px 28px rgba(26,43,74,0.10);
+  border-color: rgba(26,68,128,0.25);
+  transform: translateY(-2px);
+}
+
+.proj-sub-card:hover::before {
+  transform: scaleX(1);
+}
+
+.proj-sub-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3.5rem;
+  line-height: 1;
+  color: rgba(26,43,74,0.08);
+  position: absolute;
+  top: 1rem; right: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.proj-sub-tag {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--sakura);
+  border: 1px solid rgba(196,96,123,0.35);
+  border-radius: 3px;
+  padding: 0.22rem 0.65rem;
+  width: fit-content;
+}
+
+.proj-sub-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.9rem;
+  line-height: 1.1;
+  color: var(--navy);
+  margin-top: 0.3rem;
+}
+
+.proj-sub-desc {
+  font-size: 0.82rem;
+  line-height: 1.75;
+  color: var(--gray);
+  margin: 0.2rem 0 0;
+  flex: 1;
+}
+
+.proj-sub-link {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-top: 0.8rem;
+}
+
 /* COMMUNITY */
 .community {
   background: var(--light);
@@ -1801,6 +1891,10 @@ footer {
   .proj-content {
     padding: 2rem;
     gap: 2rem;
+  }
+
+  .proj-sub-grid {
+    grid-template-columns: 1fr;
   }
 
   .members-grid {

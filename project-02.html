@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ja" prefix="og: https://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Project 02 | GSC Fukushima Hub</title>
+  <meta name="description" content="GSC Fukushima Hub プロジェクト 02 の詳細ページです．内容は準備中です．"/>
+  <meta name="robots" content="noindex, follow"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Project 02 | GSC Fukushima Hub"/>
+  <meta property="og:description" content="GSC Fukushima Hub プロジェクト 02．詳細準備中．"/>
+  <meta property="og:url" content="https://gsc-fukushima.org/project-02.html"/>
+  <meta property="og:image" content="https://gsc-fukushima.org/ogp.jpg"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #1a2b4a;
+      --sakura: #c4607b;
+      --peach: #e08c5a;
+    }
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      background: #0d1b33;
+      color: #fff;
+      line-height: 1.8;
+    }
+    .site-header {
+      padding: 1.2rem 2rem;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      position: sticky;
+      top: 0;
+      background: rgba(13,27,51,.95);
+      backdrop-filter: blur(8px);
+      z-index: 100;
+    }
+    .back-link {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.5);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color .2s;
+    }
+    .back-link:hover { color: #fff; }
+    .toggle {
+      display: inline-flex;
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    .toggle button {
+      background: transparent;
+      color: rgba(255,255,255,.6);
+      border: none;
+      padding: 6px 12px;
+      cursor: pointer;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+    .toggle button.active { background: #fff; color: #0d1b33; }
+    .proj-hero {
+      padding: 5rem 2rem 4rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .proj-eyebrow {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--peach);
+      margin-bottom: 1rem;
+    }
+    .proj-title {
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: #fff;
+      margin-bottom: 1.5rem;
+    }
+    .proj-title span { color: var(--peach); }
+    .coming-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--peach);
+      border: 1px solid rgba(224,140,90,.4);
+      border-radius: 3px;
+      padding: 0.35rem 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+    .proj-placeholder {
+      margin-top: 3rem;
+      padding: 3rem;
+      border: 1px dashed rgba(255,255,255,.12);
+      border-radius: 4px;
+      text-align: center;
+    }
+    .placeholder-num {
+      font-size: 6rem;
+      font-weight: 800;
+      color: rgba(255,255,255,.05);
+      line-height: 1;
+      margin-bottom: 1.5rem;
+    }
+    .placeholder-msg {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,.4);
+      line-height: 1.8;
+    }
+    .placeholder-msg strong {
+      display: block;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: rgba(255,255,255,.65);
+      margin-bottom: 0.5rem;
+    }
+    .divider {
+      height: 1px;
+      background: rgba(255,255,255,.07);
+      margin: 0 2rem;
+    }
+    .proj-section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+    .sec-label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--peach);
+      margin-bottom: 1rem;
+    }
+    .sec-body {
+      font-size: 0.88rem;
+      line-height: 1.9;
+      color: rgba(255,255,255,.55);
+    }
+    .proj-footer {
+      border-top: 1px solid rgba(255,255,255,.07);
+      padding: 1.4rem 2rem;
+      text-align: center;
+      font-size: 0.72rem;
+      color: rgba(255,255,255,.3);
+      margin-top: 4rem;
+    }
+    .proj-footer a { color: rgba(255,255,255,.45); text-decoration: none; }
+    .proj-footer a:hover { color: rgba(255,255,255,.75); }
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: transparent;
+      color: rgba(255,255,255,.65);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 4px;
+      padding: 0.75rem 1.4rem;
+      text-decoration: none;
+      transition: border-color .2s, color .2s;
+      margin-top: 1.5rem;
+    }
+    .btn-outline:hover { border-color: rgba(255,255,255,.5); color: #fff; }
+    .lang-en .ja { display: none !important; }
+    .lang-ja .en { display: none !important; }
+  </style>
+</head>
+<body class="lang-ja">
+
+<header class="site-header">
+  <a href="index.html" class="back-link">← <span class="ja">ホームへ</span><span class="en">Back to Home</span></a>
+  <div class="toggle">
+    <button id="btn-ja" class="active">JA</button><button id="btn-en">EN</button>
+  </div>
+</header>
+
+<section class="proj-hero">
+  <div class="proj-eyebrow">Project 02</div>
+  <div class="coming-badge">
+    <span>◉</span>
+    <span class="ja">詳細準備中</span><span class="en">Coming Soon</span>
+  </div>
+  <h1 class="proj-title"><span class="ja">プロジェクト</span><span class="en">Project</span> <span>02</span></h1>
+
+  <div class="proj-placeholder">
+    <div class="placeholder-num">02</div>
+    <div class="placeholder-msg">
+      <strong><span class="ja">このプロジェクトの詳細は準備中です．</span><span class="en">This project page is under construction.</span></strong>
+      <span class="ja">内容が確定次第，このページを更新します．<br>最新情報はInstagramまたはお問い合わせページをご確認ください．</span>
+      <span class="en">This page will be updated once the content is finalized.<br>For the latest updates, please follow our Instagram or use the contact page.</span>
+    </div>
+    <a href="index.html#contact" class="btn-outline"><span class="ja">お問い合わせ →</span><span class="en">Contact Us →</span></a>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="proj-section">
+  <div class="sec-label"><span class="ja">他のプロジェクト</span><span class="en">Other Projects</span></div>
+  <p class="sec-body">
+    <a href="fukushima-study-tour.html" style="color:rgba(255,255,255,.7);text-decoration:none;">← Project 01: Fukushima Study Tour</a><br>
+    <a href="project-03.html" style="color:rgba(255,255,255,.7);text-decoration:none;">Project 03 →</a>
+  </p>
+</section>
+
+<footer class="proj-footer">
+  <p><a href="index.html">Global Shapers Community Fukushima Hub</a> · <span class="ja">世界経済フォーラム公認拠点</span><span class="en">WEF-recognized Hub</span></p>
+</footer>
+
+<script>
+  const params = new URLSearchParams(location.search);
+  const lang = params.get("lang") || "ja";
+  const body = document.body;
+  function setLang(l) {
+    body.classList.remove("lang-ja", "lang-en");
+    body.classList.add(l === "en" ? "lang-en" : "lang-ja");
+    document.getElementById("btn-ja").classList.toggle("active", l !== "en");
+    document.getElementById("btn-en").classList.toggle("active", l === "en");
+  }
+  setLang(lang);
+  document.getElementById("btn-ja").onclick = () => { params.set("lang","ja"); history.replaceState(null,"","?"+params.toString()); setLang("ja"); };
+  document.getElementById("btn-en").onclick = () => { params.set("lang","en"); history.replaceState(null,"","?"+params.toString()); setLang("en"); };
+</script>
+</body>
+</html>
