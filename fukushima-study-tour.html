@@ -27,25 +27,11 @@
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "Global Shapers Community Fukushima Hub",
-  "alternateName": [
-    "GSC Fukushima Hub",
-    "GSC Fukushima",
-    "Fukushima Hub",
-    "グローバルシェイパーズ福島ハブ",
-    "GSC福島ハブ",
-    "福島ハブ"
-  ],
   "url": "https://gsc-fukushima.org/",
   "logo": "https://gsc-fukushima.org/ogp.jpg",
   "foundingDate": "2025",
-  "areaServed": {
-    "@type": "Place",
-    "name": "Fukushima, Japan"
-  },
-  "parentOrganization": {
-    "@type": "Organization",
-    "name": "World Economic Forum"
-  },
+  "areaServed": {"@type": "Place", "name": "Fukushima, Japan"},
+  "parentOrganization": {"@type": "Organization", "name": "World Economic Forum"},
   "sameAs": [
     "https://www.globalshapers.org/",
     "https://initiatives.weforum.org/fukushima-hub/overview",
@@ -54,55 +40,456 @@
 }
   </script>
   <style>
-    body{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;margin:0;background:#0a1628;color:#fff;}
-    header{padding:24px 20px;border-bottom:1px solid rgba(255,255,255,.08);}
-    main{max-width:980px;margin:0 auto;padding:28px 20px;line-height:1.9;color:rgba(255,255,255,.8);}
-    a{color:#00c2ff;}
-    .lang-en .ja{display:none!important}
-    .lang-ja .en{display:none!important}
-    .toggle{display:inline-flex;border:1px solid rgba(255,255,255,.15);border-radius:6px;overflow:hidden}
-    .toggle button{background:transparent;color:rgba(255,255,255,.7);border:none;padding:8px 12px;cursor:pointer}
-    .toggle button.active{background:#00c2ff;color:#0a1628;font-weight:700}
-    .nav a{margin-right:14px;text-decoration:none;color:rgba(255,255,255,.75)}
-    .nav a:hover{color:#fff}
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #1a2b4a;
+      --blue: #1a4480;
+      --sakura: #c4607b;
+      --peach: #e08c5a;
+      --white: #ffffff;
+      --light: #f5f7fb;
+      --border: rgba(255,255,255,.1);
+      --gray: rgba(255,255,255,.55);
+    }
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      background: #0d1b33;
+      color: #fff;
+      line-height: 1.8;
+    }
+    /* ── Header ── */
+    .site-header {
+      padding: 1.2rem 2rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      position: sticky;
+      top: 0;
+      background: rgba(13,27,51,.95);
+      backdrop-filter: blur(8px);
+      z-index: 100;
+    }
+    .site-nav { display: flex; gap: 1.2rem; flex-wrap: wrap; align-items: center; }
+    .site-nav a {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: rgba(255,255,255,.65);
+      transition: color .2s;
+    }
+    .site-nav a:hover, .site-nav a.active { color: #fff; }
+    .back-link {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.5);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color .2s;
+    }
+    .back-link:hover { color: #fff; }
+    .toggle {
+      display: inline-flex;
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    .toggle button {
+      background: transparent;
+      color: rgba(255,255,255,.6);
+      border: none;
+      padding: 6px 12px;
+      cursor: pointer;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+    .toggle button.active { background: #fff; color: #0d1b33; }
+    /* ── Hero ── */
+    .proj-hero {
+      padding: 5rem 2rem 4rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .proj-eyebrow {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--sakura);
+      margin-bottom: 1rem;
+    }
+    .proj-title {
+      font-family: system-ui, -apple-system, sans-serif;
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: #fff;
+      margin-bottom: 1.5rem;
+    }
+    .proj-title span { color: var(--sakura); }
+    .proj-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    .proj-chip {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.9rem;
+      border-radius: 3px;
+      border: 1px solid rgba(255,255,255,.15);
+      color: rgba(255,255,255,.7);
+    }
+    .proj-lead {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: rgba(255,255,255,.75);
+      max-width: 680px;
+    }
+    /* ── Divider ── */
+    .proj-divider {
+      height: 1px;
+      background: rgba(255,255,255,.07);
+      margin: 0 2rem;
+    }
+    /* ── Section ── */
+    .proj-section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3.5rem 2rem;
+    }
+    .proj-section + .proj-section { padding-top: 0; }
+    .sec-label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--sakura);
+      margin-bottom: 1rem;
+    }
+    .sec-heading {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 1.2rem;
+    }
+    .sec-body {
+      font-size: 0.9rem;
+      line-height: 1.9;
+      color: rgba(255,255,255,.7);
+    }
+    /* ── Info Grid ── */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1px;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.07);
+      margin-top: 2rem;
+    }
+    .info-cell {
+      padding: 1.4rem 1.6rem;
+      background: rgba(255,255,255,.02);
+    }
+    .info-label {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.35);
+      margin-bottom: 0.45rem;
+    }
+    .info-val {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #fff;
+    }
+    /* ── Activity list ── */
+    .act-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      margin-top: 1.2rem;
+    }
+    .act-list li {
+      display: flex;
+      gap: 0.8rem;
+      font-size: 0.88rem;
+      line-height: 1.75;
+      color: rgba(255,255,255,.7);
+    }
+    .act-list li::before {
+      content: '—';
+      color: var(--sakura);
+      flex-shrink: 0;
+      margin-top: 0.05em;
+    }
+    /* ── Stats ── */
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.07);
+      margin-top: 2rem;
+    }
+    .stat-cell {
+      padding: 2rem 1.6rem;
+      background: rgba(255,255,255,.02);
+      text-align: center;
+    }
+    .stat-num {
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: var(--sakura);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .stat-desc {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.45);
+    }
+    /* ── CTA ── */
+    .proj-cta {
+      background: rgba(255,255,255,.03);
+      border-top: 1px solid rgba(255,255,255,.07);
+    }
+    .cta-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+    .cta-heading {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .cta-sub {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,.5);
+      margin-top: 0.3rem;
+    }
+    .cta-links { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: var(--sakura);
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 0.75rem 1.4rem;
+      text-decoration: none;
+      transition: opacity .2s;
+    }
+    .btn-primary:hover { opacity: 0.88; }
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: transparent;
+      color: rgba(255,255,255,.75);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 4px;
+      padding: 0.75rem 1.4rem;
+      text-decoration: none;
+      transition: border-color .2s, color .2s;
+    }
+    .btn-outline:hover { border-color: rgba(255,255,255,.5); color: #fff; }
+    /* ── Footer ── */
+    .proj-footer {
+      border-top: 1px solid rgba(255,255,255,.07);
+      padding: 1.4rem 2rem;
+      text-align: center;
+      font-size: 0.72rem;
+      color: rgba(255,255,255,.3);
+    }
+    .proj-footer a { color: rgba(255,255,255,.45); text-decoration: none; }
+    .proj-footer a:hover { color: rgba(255,255,255,.75); }
+    /* ── Lang toggle ── */
+    .lang-en .ja { display: none !important; }
+    .lang-ja .en { display: none !important; }
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .stat-row { grid-template-columns: 1fr; }
+      .proj-title { font-size: 1.9rem; }
+    }
   </style>
 </head>
 <body class="lang-ja">
-<header>
-  <div class="nav">
-    <a href="https://gsc-fukushima.org/">Home</a>
-    <a href="https://gsc-fukushima.org/about.html">About</a>
-    <a href="https://gsc-fukushima.org/fukushima-study-tour.html">Study Tour</a>
-    <a href="https://gsc-fukushima.org/projects.html">Projects</a>
-    <a href="https://gsc-fukushima.org/media.html">Media</a>
-    <a href="https://gsc-fukushima.org/contact.html">Contact</a>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div style="display:flex;align-items:center;gap:1.8rem;flex-wrap:wrap;">
+    <a href="index.html" class="back-link">← <span class="ja">ホームへ</span><span class="en">Back to Home</span></a>
+    <nav class="site-nav">
+      <a href="index.html#project" class="active"><span class="ja">プロジェクト</span><span class="en">Projects</span></a>
+      <a href="index.html#members"><span class="ja">メンバー</span><span class="en">Members</span></a>
+      <a href="index.html#contact"><span class="ja">お問い合わせ</span><span class="en">Contact</span></a>
+    </nav>
   </div>
-  <div class="toggle" style="margin-top:14px">
+  <div class="toggle">
     <button id="btn-ja" class="active">JA</button><button id="btn-en">EN</button>
   </div>
 </header>
-<main>
-  <h1><span class="ja">Fukushima Study Tour</span><span class="en">Fukushima Study Tour</span></h1>
-  <div class="ja">
-    <p>Fukushima Study Tourは，浜通りを中心に地域の現場と向き合い，対話と体験を通じて学びを深めるプログラムである．</p><ul><li>目的：学びの場の創出，関係人口の形成，継続的な協働の起点づくり</li><li>形式：講義・現地訪問・対話セッション</li></ul><p>参加案内は公式Instagramで告知する．</p>
+
+<!-- HERO -->
+<section class="proj-hero">
+  <div class="proj-eyebrow"><span class="ja">フラッグシッププロジェクト · Project 01</span><span class="en">Flagship Project · Project 01</span></div>
+  <h1 class="proj-title">Fukushima<br><span>Study Tour</span></h1>
+  <div class="proj-meta-row">
+    <span class="proj-chip">Sustainable Development</span>
+    <span class="proj-chip"><span class="ja">対象：若者・国内外</span><span class="en">Target: Youth / All Japan</span></span>
+    <span class="proj-chip"><span class="ja">活動開始：2017年〜</span><span class="en">Since 2017</span></span>
   </div>
-  <div class="en">
-    <p>The Fukushima Study Tour is an immersive program that engages with local realities—especially in Hamadori—through visits, conversations, and learning sessions.</p><ul><li>Goals: learning, building lasting relationships, and creating starting points for collaboration</li><li>Format: briefings, site visits, and dialogue sessions</li></ul><p>Participation updates are announced via our official Instagram.</p>
+  <p class="proj-lead ja">2017年から横浜Hubを中心にAll Japanで連帯して活動してきた「ふくしま部」を継続・発展させるプロジェクト．福島第一原子力発電所や周辺地域コミュニティを巡るスタディツアーと，ツアー後のワークショップを通じて「関係人口」の創出を目指します．</p>
+  <p class="proj-lead en">This project continues and expands "Fukushima-bu," an All-Japan initiative centered on the Yokohama Hub since 2017. Study tours to Fukushima Daiichi and surrounding communities, followed by workshops, aim to build lasting networks of engaged people.</p>
+</section>
+
+<div class="proj-divider"></div>
+
+<!-- STATS -->
+<section class="proj-section">
+  <div class="sec-label"><span class="ja">実績</span><span class="en">Track Record</span></div>
+  <div class="stat-row">
+    <div class="stat-cell">
+      <div class="stat-num">500<span style="font-size:1.4rem;">+</span></div>
+      <div class="stat-desc"><span class="ja">累計参加者数</span><span class="en">Total Participants</span></div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">2017</div>
+      <div class="stat-desc"><span class="ja">活動開始年</span><span class="en">Year Founded</span></div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">All Japan</div>
+      <div class="stat-desc"><span class="ja">参加Hub</span><span class="en">Participating Hubs</span></div>
+    </div>
   </div>
-</main>
+</section>
+
+<div class="proj-divider"></div>
+
+<!-- PROBLEM -->
+<section class="proj-section">
+  <div class="sec-label"><span class="ja">課題</span><span class="en">Problem Statement</span></div>
+  <h2 class="sec-heading"><span class="ja">福島が抱える複合的な課題</span><span class="en">Complex Challenges Facing Fukushima</span></h2>
+  <p class="sec-body ja">2011年の原発事故により，最大16万人が避難．避難指示が解除された後も住民の帰還は少なく，コミュニティは分断されたままです．賠償金額の差異による地域内の分断，少子高齢化による若者不足，農水産物への風評被害など，複合的な課題が今も続いています．また，福島県は日本で4番目に人口流出が多く，特に女性の流出は全国最多です．</p>
+  <p class="sec-body en">The 2011 nuclear disaster forced up to 160,000 people to evacuate. Even after evacuation orders were lifted, communities remain fragmented. Complex challenges persist: divisions caused by differing compensation amounts, a shortage of youth due to declining birthrates and aging, and reputational damage to agricultural and marine products. Fukushima has the 4th highest population outflow in Japan — and the highest outflow of women nationwide.</p>
+</section>
+
+<div class="proj-divider"></div>
+
+<!-- SOLUTION -->
+<section class="proj-section">
+  <div class="sec-label"><span class="ja">解決策</span><span class="en">Proposed Solution</span></div>
+  <h2 class="sec-heading"><span class="ja">スタディツアーと関係人口の創出</span><span class="en">Study Tours & Building Lasting Connections</span></h2>
+  <p class="sec-body ja">スタディツアーを通じて参加者が福島の現場と向き合い，ワークショップでアクションプランを作成することで，ツアー後も福島と関わり続ける「関係人口」を生み出します．</p>
+  <p class="sec-body en">By engaging participants directly with Fukushima's realities during tours, and creating action plans in post-tour workshops, the project cultivates an ongoing network of people who remain connected to Fukushima long after the tour ends.</p>
+</section>
+
+<div class="proj-divider"></div>
+
+<!-- ACTIVITIES -->
+<section class="proj-section">
+  <div class="sec-label"><span class="ja">活動内容</span><span class="en">Hub Activities</span></div>
+  <h2 class="sec-heading"><span class="ja">主な取り組み</span><span class="en">Key Initiatives</span></h2>
+  <ul class="act-list">
+    <li><span class="ja">福島第一原発・周辺地域コミュニティを巡るスタディツアーの企画・実施</span><span class="en">Planning and running study tours visiting Fukushima Daiichi and surrounding local communities</span></li>
+    <li><span class="ja">ツアー後のワークショップで，参加者が福島と関わり続けるアクションプランを作成</span><span class="en">Post-tour workshops where participants create action plans to sustain their connection with Fukushima</span></li>
+    <li><span class="ja">浜通りでのイベント開催，若者応援ファンドへの協力</span><span class="en">Events in Hamadori and support for youth funds</span></li>
+    <li><span class="ja">企業・団体との研修旅行の企画・コーディネート</span><span class="en">Coordinating corporate and organizational study trips</span></li>
+    <li><span class="ja">SNS・レポートを通じた活動の記録・発信</span><span class="en">Documenting and sharing activities via social media and reports</span></li>
+  </ul>
+</section>
+
+<div class="proj-divider"></div>
+
+<!-- OVERVIEW TABLE -->
+<section class="proj-section">
+  <div class="sec-label"><span class="ja">プロジェクト概要</span><span class="en">Project Overview</span></div>
+  <div class="info-grid">
+    <div class="info-cell">
+      <div class="info-label"><span class="ja">カテゴリ</span><span class="en">Category</span></div>
+      <div class="info-val">Sustainable Development</div>
+    </div>
+    <div class="info-cell">
+      <div class="info-label"><span class="ja">対象地域</span><span class="en">Region</span></div>
+      <div class="info-val"><span class="ja">福島県（浜通りを中心に）</span><span class="en">Fukushima (mainly Hamadori)</span></div>
+    </div>
+    <div class="info-cell">
+      <div class="info-label"><span class="ja">対象</span><span class="en">Target</span></div>
+      <div class="info-val"><span class="ja">若者・国内外の参加者</span><span class="en">Youth, national &amp; international</span></div>
+    </div>
+    <div class="info-cell">
+      <div class="info-label"><span class="ja">WEF登録</span><span class="en">WEF Registration</span></div>
+      <div class="info-val"><a href="https://initiatives.weforum.org/fukushima-hub/project-details/fukushima-study-tour/a0sTG000002albxYAA" target="_blank" rel="noopener" style="color:var(--sakura);text-decoration:none;">WEF公式ページ ↗</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="proj-cta">
+  <div class="cta-inner">
+    <div>
+      <div class="cta-heading"><span class="ja">参加・お問い合わせ</span><span class="en">Participate / Inquire</span></div>
+      <div class="cta-sub"><span class="ja">参加案内は公式InstagramまたはWEFページでご確認ください．</span><span class="en">Participation announcements are posted on our Instagram and WEF page.</span></div>
+    </div>
+    <div class="cta-links">
+      <a href="https://www.instagram.com/fukushima_bu/" target="_blank" rel="noopener" class="btn-primary">📷 @fukushima_bu</a>
+      <a href="https://www.instagram.com/gsc_fukushima/" target="_blank" rel="noopener" class="btn-outline">@gsc_fukushima</a>
+      <a href="index.html#contact" class="btn-outline"><span class="ja">お問い合わせ</span><span class="en">Contact</span></a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="proj-footer">
+  <p><a href="index.html">Global Shapers Community Fukushima Hub</a> · <span class="ja">世界経済フォーラム公認拠点</span><span class="en">WEF-recognized Hub</span></p>
+</footer>
+
 <script>
-  const params=new URLSearchParams(location.search);
-  const lang=params.get("lang")||"ja";
-  const body=document.body;
-  function setLang(l){
-    body.classList.remove("lang-ja","lang-en");
-    body.classList.add(l==="en"?"lang-en":"lang-ja");
-    document.getElementById("btn-ja").classList.toggle("active", l!=="en");
-    document.getElementById("btn-en").classList.toggle("active", l==="en");
+  const params = new URLSearchParams(location.search);
+  const lang = params.get("lang") || "ja";
+  const body = document.body;
+  function setLang(l) {
+    body.classList.remove("lang-ja", "lang-en");
+    body.classList.add(l === "en" ? "lang-en" : "lang-ja");
+    document.getElementById("btn-ja").classList.toggle("active", l !== "en");
+    document.getElementById("btn-en").classList.toggle("active", l === "en");
   }
   setLang(lang);
-  document.getElementById("btn-ja").onclick=()=>{params.set("lang","ja"); history.replaceState(null,"","?"+params.toString()); setLang("ja");};
-  document.getElementById("btn-en").onclick=()=>{params.set("lang","en"); history.replaceState(null,"","?"+params.toString()); setLang("en");};
+  document.getElementById("btn-ja").onclick = () => { params.set("lang","ja"); history.replaceState(null,"","?"+params.toString()); setLang("ja"); };
+  document.getElementById("btn-en").onclick = () => { params.set("lang","en"); history.replaceState(null,"","?"+params.toString()); setLang("en"); };
 </script>
 </body>
 </html>
