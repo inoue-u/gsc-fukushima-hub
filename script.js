@@ -328,7 +328,11 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close
 
 /* ── TADAIMA FUKUSHIMA PHOTO GALLERY ── */
 (function() {
-  var PROXY = 'https://api.allorigins.win/get?url=';
+  var PROXIES = [
+    'https://api.allorigins.win/get?url=',
+    'https://api.codetabs.com/v1/proxy?quest='
+  ];
+  var IMG_PROXY = 'https://api.allorigins.win/raw?url=';
   var TARGET = 'https://tadaima-fukushima.jp/';
   var allImages = [];
 
@@ -336,32 +340,36 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close
     var parser = new DOMParser();
     var doc = parser.parseFromString(html, 'text/html');
     var imgs = [];
-    doc.querySelectorAll('img').forEach(function(img) {
-      var src = img.src || img.getAttribute('src') || '';
-      // resolve relative URLs against target origin
-      if (src && !src.startsWith('data:')) {
-        try {
-          var abs = new URL(src, TARGET).href;
-          // filter out tiny icons/logos (need meaningful photos)
-          if (/\.(jpe?g|png|webp)/i.test(abs) &&
-              !/logo|icon|avatar|banner|noimage|placeholder|dummy|blank/i.test(abs)) {
-            imgs.push(abs);
-          }
-        } catch(e) {}
-      }
-    });
-    // also check srcset
-    doc.querySelectorAll('[srcset]').forEach(function(el) {
-      el.getAttribute('srcset').split(',').forEach(function(part) {
-        var url = part.trim().split(/\s+/)[0];
-        if (url) {
-          try {
-            var abs = new URL(url, TARGET).href;
-            if (/\.(jpe?g|png|webp)/i.test(abs)) imgs.push(abs);
-          } catch(e) {}
+    var SKIP = /logo|icon|avatar|banner|noimage|placeholder|dummy|blank|spinner|loading/i;
+
+    function addSrc(src) {
+      if (!src || src.startsWith('data:')) return;
+      try {
+        var abs = new URL(src, TARGET).href;
+        if (/\.(jpe?g|png|webp)/i.test(abs) && !SKIP.test(abs)) {
+          imgs.push(abs);
         }
+      } catch(e) {}
+    }
+
+    // check src and lazy-load attributes
+    doc.querySelectorAll('img').forEach(function(el) {
+      ['src','data-src','data-lazy-src','data-original','data-lazy'].forEach(function(attr) {
+        addSrc(el.getAttribute(attr));
       });
     });
+
+    // check srcset and data-srcset
+    doc.querySelectorAll('[srcset],[data-srcset]').forEach(function(el) {
+      ['srcset','data-srcset'].forEach(function(attr) {
+        var val = el.getAttribute(attr);
+        if (!val) return;
+        val.split(',').forEach(function(part) {
+          addSrc(part.trim().split(/\s+/)[0]);
+        });
+      });
+    });
+
     // deduplicate
     return imgs.filter(function(v, i, a) { return a.indexOf(v) === i; });
   }
@@ -372,6 +380,10 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close
       var tmp = arr[i]; arr[i] = arr[j]; arr[j] = tmp;
     }
     return arr;
+  }
+
+  function proxyImg(src) {
+    return IMG_PROXY + encodeURIComponent(src);
   }
 
   function renderGallery(images) {
@@ -392,7 +404,7 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close
       img.alt = 'Tadaima Fukushima';
       img.onload = function() { img.classList.add('loaded'); };
       img.onerror = tryNext;
-      img.src = src;
+      img.src = proxyImg(src);
       item.appendChild(img);
       grid.appendChild(item);
     }
@@ -409,20 +421,27 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close
     var grid = document.getElementById('tadaima-gallery-grid');
     if (grid) grid.innerHTML = '<div class="gallery-loading"><span class="gallery-spinner"></span></div>';
 
-    fetch(PROXY + encodeURIComponent(TARGET))
-      .then(function(r) { return r.json(); })
-      .then(function(data) {
-        var html = data.contents || '';
-        allImages = extractImages(html);
-        if (allImages.length === 0) {
-          showError('画像を取得できませんでした / Could not load images');
-        } else {
-          renderGallery(allImages);
-        }
-      })
-      .catch(function() {
+    function tryProxy(i) {
+      if (i >= PROXIES.length) {
         showError('読み込みに失敗しました / Failed to load');
-      });
+        return;
+      }
+      var url = PROXIES[i] + encodeURIComponent(TARGET);
+      fetch(url)
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+          var html = data.contents || data || '';
+          if (typeof html !== 'string') html = '';
+          allImages = extractImages(html);
+          if (allImages.length === 0) {
+            tryProxy(i + 1);
+          } else {
+            renderGallery(allImages);
+          }
+        })
+        .catch(function() { tryProxy(i + 1); });
+    }
+    tryProxy(0);
   }
 
   document.addEventListener('DOMContentLoaded', function() {
